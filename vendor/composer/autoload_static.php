@@ -43,6 +43,7 @@ class ComposerStaticInite2803b87d7ae4125268fc0a5e339ad50
         ),
         'S' => 
         array (
+            'Symfonycasts\\SassBundle\\' => 24,
             'Symfony\\UX\\Turbo\\' => 17,
             'Symfony\\UX\\StimulusBundle\\' => 26,
             'Symfony\\Runtime\\Symfony\\Component\\' => 34,
@@ -185,6 +186,10 @@ class ComposerStaticInite2803b87d7ae4125268fc0a5e339ad50
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Symfonycasts\\SassBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfonycasts/sass-bundle/src',
         ),
         'Symfony\\UX\\Turbo\\' => 
         array (

@@ -1,0 +1,19 @@
+header {
+    background-color: purple;
+    color: white;
+    text-align: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+header h2,
+header li a {
+    color: white !important;
+}
+
+header li a:hover {
+    color: pink !important;
+}

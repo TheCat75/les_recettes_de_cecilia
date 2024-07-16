@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '4bf1eb8babb2ebbcd3a43a6b133b71b3df6a1ea7',
+        'reference' => '8b0ca636dfedc1d6ba16e7c5252de88c13d0cf07',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '4bf1eb8babb2ebbcd3a43a6b133b71b3df6a1ea7',
+            'reference' => '8b0ca636dfedc1d6ba16e7c5252de88c13d0cf07',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1301,6 +1301,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'symfonycasts/sass-bundle' => array(
+            'pretty_version' => 'v0.7.0',
+            'version' => '0.7.0.0',
+            'reference' => 'd88601c50eff716d9273dffbd736adefdc19e2fc',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfonycasts/sass-bundle',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfonycasts/verify-email-bundle' => array(
             'pretty_version' => 'v1.17.0',
             'version' => '1.17.0.0',
@@ -1319,6 +1328,24 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'thomaspark/bootswatch' => array(
+            'pretty_version' => 'v5.3.3',
+            'version' => '5.3.3.0',
+            'reference' => '646c94da2c262473c6f73664f4547c046f3a28dd',
+            'type' => 'component',
+            'install_path' => __DIR__ . '/../thomaspark/bootswatch',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'twbs/bootstrap' => array(
+            'pretty_version' => 'v5.3.3',
+            'version' => '5.3.3.0',
+            'reference' => '6e1f75f420f68e1d52733b8e407fc7c3766c9dba',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../twbs/bootstrap',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'twig/extra-bundle' => array(
             'pretty_version' => 'v3.10.0',
             'version' => '3.10.0.0',
@@ -1336,6 +1363,12 @@
             'install_path' => __DIR__ . '/../twig/twig',
             'aliases' => array(),
             'dev_requirement' => false,
+        ),
+        'twitter/bootstrap' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => 'v5.3.3',
+            ),
         ),
         'webmozart/assert' => array(
             'pretty_version' => '1.11.0',

@@ -68,9 +68,16 @@ class __TwigTemplate_704ff75bfff1e4bb1aef7730196bb688 extends Template
     <body>
         ";
         // line 15
-        yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
+        yield from         $this->loadTemplate("_partials/_header.html.twig", "base.html.twig", 15)->unwrap()->yield($context);
         // line 16
-        yield "    </body>
+        yield "        ";
+        yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
+        // line 17
+        yield "        ";
+        yield from         $this->loadTemplate("_partials/_footer.html.twig", "base.html.twig", 17)->unwrap()->yield($context);
+        // line 18
+        yield "
+    </body>
 </html>
 ";
         
@@ -167,7 +174,7 @@ class __TwigTemplate_704ff75bfff1e4bb1aef7730196bb688 extends Template
         return; yield '';
     }
 
-    // line 15
+    // line 16
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -197,9 +204,17 @@ class __TwigTemplate_704ff75bfff1e4bb1aef7730196bb688 extends Template
     /**
      * @codeCoverageIgnore
      */
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
     public function getDebugInfo()
     {
-        return array (  171 => 15,  151 => 11,  140 => 12,  137 => 11,  127 => 10,  116 => 8,  106 => 7,  86 => 5,  73 => 16,  71 => 15,  67 => 13,  65 => 10,  62 => 9,  60 => 7,  55 => 5,  49 => 1,);
+        return array (  178 => 16,  158 => 11,  147 => 12,  144 => 11,  134 => 10,  123 => 8,  113 => 7,  93 => 5,  79 => 18,  76 => 17,  73 => 16,  71 => 15,  67 => 13,  65 => 10,  62 => 9,  60 => 7,  55 => 5,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -218,7 +233,10 @@ class __TwigTemplate_704ff75bfff1e4bb1aef7730196bb688 extends Template
         {% endblock %}
     </head>
     <body>
+        {% include '_partials/_header.html.twig' %}
         {% block body %}{% endblock %}
+        {% include '_partials/_footer.html.twig' %}
+
     </body>
 </html>
 ", "base.html.twig", "/home/moustache/Documents/pro/les_recettes_de_cecilia/templates/base.html.twig");

@@ -1,20 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}les recettes de Cécilia{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/home/moustache/Documents/pro/les_recettes_de_cecilia/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>/home/moustache/Documents/pro/les_recettes_de_cecilia/templates/home/index.html.twig</code></li>
-    </ul>
+<div class="container-fluid">
+    <div class="row hero">
+        <div class="col-12 ">
+            <h1 class="text-center">Bienvenue sur le site de recettes de Cécilia</h1>
+        </div>
+    </div>
+    <div class="row  m-5">
+        <div class="col-12 d-flex justify-content-center">
+            <h2 class="text-center home-sub-title">Créez, partagez et découvrez des menus sur-mesure qui s’adaptent à vos goûts, vos besoins nutritionnels et vos préférences alimentaires, le tout enrichi par notre communauté passionnée de gourmets !</h2>
+        </div>
+    </div>
+    <div class="row  my-5">
+        <div class="col-12 d-flex justify-content-center ">
+            <h3 class="text-center home-text">Rejoignez la révolution culinaire avec Les Recettes de Cécilia</h3>
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col-12 d-flex justify-content-center">
+            <button type="button" class="btn btn-with-bg text-uppercase fw-bold">Inscrivez-vous pour accéder à des milliers de recettes et de menus personnalisés</button>
+        </div>
+    </div>
 </div>
+
 {% endblock %}

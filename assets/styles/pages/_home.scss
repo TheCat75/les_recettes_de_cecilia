@@ -1,0 +1,29 @@
+.hero {
+    background-image: url("../pictures/home-cec5c4b763ee479399cbe8fd598de111.jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+}
+
+.home-sub-title {
+    font-size: 2rem;
+    font-weight: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: purple !important
+}
+
+.home-text {
+    font-size: 1rem;
+    font-weight: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: purple !important
+}

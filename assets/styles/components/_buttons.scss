@@ -1,0 +1,14 @@
+.btn-with-bg {
+    background-color: purple;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-radius: .5rem;
+    font-weight: bold;
+}
+
+.btn-with-bg:hover {
+    background-color: white;
+    border: 1px solid purple;
+    color: purple;
+}

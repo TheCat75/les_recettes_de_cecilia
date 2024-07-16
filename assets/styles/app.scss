@@ -1,0 +1,11 @@
+@import '../../vendor/twbs/bootstrap/scss/bootstrap';
+
+/* Partials */
+@import 'partials/header';
+@import 'partials/footer';
+
+/* Pages */
+@import 'pages/home';
+
+/* Components */
+@import 'components/buttons';
