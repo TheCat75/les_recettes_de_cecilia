@@ -168,6 +168,6 @@ array_key_exists("token", $context)) ? (Twig\Extension\CoreExtension::default((i
     <h2>{{ messages[about].title }}</h2>
     <p>{{ messages[about].message }}</p>
 {% endblock %}
-", "@WebProfiler/Profiler/info.html.twig", "/home/moustache/Documents/projet/lesRecettesDeCecilia/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/info.html.twig");
+", "@WebProfiler/Profiler/info.html.twig", "/home/moustache/Documents/pro/les_recettes_de_cecilia/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/info.html.twig");
     }
 }

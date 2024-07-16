@@ -320,6 +320,6 @@ class __TwigTemplate_35917676a5fbd940fd48affd97c0f740 extends Template
         {% block body '' %}
     </body>
 </html>
-", "@WebProfiler/Profiler/base.html.twig", "/home/moustache/Documents/projet/lesRecettesDeCecilia/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/base.html.twig");
+", "@WebProfiler/Profiler/base.html.twig", "/home/moustache/Documents/pro/les_recettes_de_cecilia/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/base.html.twig");
     }
 }

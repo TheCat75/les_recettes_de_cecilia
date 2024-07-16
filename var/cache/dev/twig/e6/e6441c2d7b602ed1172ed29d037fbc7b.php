@@ -173,6 +173,6 @@ class __TwigTemplate_6a2eb34f8f8a72c30718be9496d45b22 extends Template
 
     {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: profiler_url, name: 'time', status: status_color }) }}
 {% endblock %}
-", "@WebProfiler/Collector/memory.html.twig", "/home/moustache/Documents/projet/lesRecettesDeCecilia/vendor/symfony/web-profiler-bundle/Resources/views/Collector/memory.html.twig");
+", "@WebProfiler/Collector/memory.html.twig", "/home/moustache/Documents/pro/les_recettes_de_cecilia/vendor/symfony/web-profiler-bundle/Resources/views/Collector/memory.html.twig");
     }
 }

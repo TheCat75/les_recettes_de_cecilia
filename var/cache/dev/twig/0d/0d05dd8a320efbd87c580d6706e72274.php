@@ -444,6 +444,6 @@ class __TwigTemplate_37b0ed534aab9bbcdf141cbbd689df41 extends Template
         </div>
     </div>
 {% endblock %}
-", "@WebProfiler/Profiler/layout.html.twig", "/home/moustache/Documents/projet/lesRecettesDeCecilia/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/layout.html.twig");
+", "@WebProfiler/Profiler/layout.html.twig", "/home/moustache/Documents/pro/les_recettes_de_cecilia/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/layout.html.twig");
     }
 }

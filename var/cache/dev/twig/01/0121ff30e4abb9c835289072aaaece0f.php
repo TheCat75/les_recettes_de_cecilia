@@ -168,6 +168,6 @@ class __TwigTemplate_9b1f9c4c0b288c4534a82f4a9801ef29 extends Template
 {% block panel %}
     {{ render(controller('web_profiler.controller.router::panelAction', { token: token })) }}
 {% endblock %}
-", "@WebProfiler/Collector/router.html.twig", "/home/moustache/Documents/projet/lesRecettesDeCecilia/vendor/symfony/web-profiler-bundle/Resources/views/Collector/router.html.twig");
+", "@WebProfiler/Collector/router.html.twig", "/home/moustache/Documents/pro/les_recettes_de_cecilia/vendor/symfony/web-profiler-bundle/Resources/views/Collector/router.html.twig");
     }
 }

@@ -1724,6 +1724,6 @@ $context["voter_detail"], "vote", [], "array", false, false, false, 483) == Twig
         </div>
     {% endif %}
 {% endblock %}
-", "@Security/Collector/security.html.twig", "/home/moustache/Documents/projet/lesRecettesDeCecilia/vendor/symfony/security-bundle/Resources/views/Collector/security.html.twig");
+", "@Security/Collector/security.html.twig", "/home/moustache/Documents/pro/les_recettes_de_cecilia/vendor/symfony/security-bundle/Resources/views/Collector/security.html.twig");
     }
 }

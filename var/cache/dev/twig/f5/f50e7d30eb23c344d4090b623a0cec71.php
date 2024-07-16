@@ -81,6 +81,6 @@ class __TwigTemplate_401c47b3d34d3997bc850d6ac069a0cb extends Template
     public function getSourceContext()
     {
         return new Source("{% extends \"@email/zurb_2/notification/body.txt.twig\" %}
-", "@email/default/notification/body.txt.twig", "/home/moustache/Documents/projet/lesRecettesDeCecilia/vendor/symfony/twig-bridge/Resources/views/Email/default/notification/body.txt.twig");
+", "@email/default/notification/body.txt.twig", "/home/moustache/Documents/pro/les_recettes_de_cecilia/vendor/symfony/twig-bridge/Resources/views/Email/default/notification/body.txt.twig");
     }
 }

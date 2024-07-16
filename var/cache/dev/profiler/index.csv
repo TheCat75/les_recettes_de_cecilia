@@ -1,1 +1,13 @@
-7c7349,127.0.0.1,GET,https://127.0.0.1:8000/,1721143051,,404,request
+fd58dd,127.0.0.1,GET,https://127.0.0.1:8000/register,1721158089,9282bf,500,request
+9282bf,127.0.0.1,GET,https://127.0.0.1:8000/register,1721158089,,500,request
+3ccf41,127.0.0.1,GET,https://127.0.0.1:8000/register,1721158090,97b322,500,request
+97b322,127.0.0.1,GET,https://127.0.0.1:8000/register,1721158090,,500,request
+70f8a9,127.0.0.1,GET,https://127.0.0.1:8000/register,1721158359,,200,request
+c61f69,127.0.0.1,POST,https://127.0.0.1:8000/register,1721158383,,302,request
+40f4f0,127.0.0.1,GET,https://127.0.0.1:8000/,1721158383,,404,request
+4c5dc7,127.0.0.1,GET,https://127.0.0.1:8000/register,1721158383,,200,request
+f225ba,127.0.0.1,GET,https://127.0.0.1:8000/login,1721158393,,200,request
+8566bb,127.0.0.1,POST,https://127.0.0.1:8000/login,1721158445,,302,request
+e231f7,127.0.0.1,GET,https://127.0.0.1:8000/,1721158445,,404,request
+b8edb0,127.0.0.1,GET,https://127.0.0.1:8000/login,1721158445,,200,request
+5ce40e,127.0.0.1,GET,https://127.0.0.1:8000/home,1721158451,,200,request

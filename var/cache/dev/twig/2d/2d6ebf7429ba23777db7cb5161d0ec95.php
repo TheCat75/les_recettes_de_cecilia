@@ -221,6 +221,6 @@ class __TwigTemplate_704ff75bfff1e4bb1aef7730196bb688 extends Template
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "/home/moustache/Documents/projet/lesRecettesDeCecilia/templates/base.html.twig");
+", "base.html.twig", "/home/moustache/Documents/pro/les_recettes_de_cecilia/templates/base.html.twig");
     }
 }
