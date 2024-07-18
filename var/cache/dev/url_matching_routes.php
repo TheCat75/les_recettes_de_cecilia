@@ -14,6 +14,14 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+        '/allergens' => [[['_route' => 'app_allergens_index', '_controller' => 'App\\Controller\\AllergensController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/allergens/new' => [[['_route' => 'app_allergens_new', '_controller' => 'App\\Controller\\AllergensController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/ingredients' => [[['_route' => 'app_ingredients_index', '_controller' => 'App\\Controller\\IngredientsController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/ingredients/new' => [[['_route' => 'app_ingredients_new', '_controller' => 'App\\Controller\\IngredientsController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/nutritional/value' => [[['_route' => 'app_nutritional_value_index', '_controller' => 'App\\Controller\\NutritionalValueController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/nutritional/value/new' => [[['_route' => 'app_nutritional_value_new', '_controller' => 'App\\Controller\\NutritionalValueController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/preparation' => [[['_route' => 'app_preparation_index', '_controller' => 'App\\Controller\\PreparationController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/preparation/new' => [[['_route' => 'app_preparation_new', '_controller' => 'App\\Controller\\PreparationController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\Public\\HomeController::index'], null, null, null, false, false, null]],
         '/recipes' => [[['_route' => 'app_recipes_index', '_controller' => 'App\\Controller\\RecipesController::index'], null, ['GET' => 0], null, true, false, null]],
         '/recipes/new' => [[['_route' => 'app_recipes_new', '_controller' => 'App\\Controller\\RecipesController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
@@ -23,8 +31,8 @@ return [
         '/reset-password/check-email' => [[['_route' => 'app_check_email', '_controller' => 'App\\Controller\\ResetPasswordController::checkEmail'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
-        '/profil' => [[['_route' => 'app_user_show', '_controller' => 'App\\Controller\\UserController::show'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
-        '/profil/delete' => [[['_route' => 'app_user_delete', '_controller' => 'App\\Controller\\UserController::delete'], null, ['POST' => 0], null, false, false, null]],
+        '/profile' => [[['_route' => 'app_user_show', '_controller' => 'App\\Controller\\UserController::show'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
+        '/profile/delete' => [[['_route' => 'app_user_delete', '_controller' => 'App\\Controller\\UserController::delete'], null, ['POST' => 0], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -46,13 +54,33 @@ return [
                         .')'
                     .')'
                 .')'
+                .'|/allergens/([^/]++)(?'
+                    .'|(*:224)'
+                    .'|/edit(*:237)'
+                    .'|(*:245)'
+                .')'
+                .'|/ingredients/([^/]++)(?'
+                    .'|(*:278)'
+                    .'|/edit(*:291)'
+                    .'|(*:299)'
+                .')'
+                .'|/nutritional/value/([^/]++)(?'
+                    .'|(*:338)'
+                    .'|/edit(*:351)'
+                    .'|(*:359)'
+                .')'
+                .'|/preparation/([^/]++)(?'
+                    .'|(*:392)'
+                    .'|/edit(*:405)'
+                    .'|(*:413)'
+                .')'
                 .'|/re(?'
                     .'|cipes/([^/]++)(?'
-                        .'|(*:225)'
-                        .'|/edit(*:238)'
-                        .'|(*:246)'
+                        .'|(*:445)'
+                        .'|/edit(*:458)'
+                        .'|(*:466)'
                     .')'
-                    .'|set\\-password/reset(?:/([^/]++))?(*:288)'
+                    .'|set\\-password/reset(?:/([^/]++))?(*:508)'
                 .')'
             .')/?$}sDu',
     ],
@@ -65,10 +93,22 @@ return [
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        225 => [[['_route' => 'app_recipes_show', '_controller' => 'App\\Controller\\RecipesController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        238 => [[['_route' => 'app_recipes_edit', '_controller' => 'App\\Controller\\RecipesController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        246 => [[['_route' => 'app_recipes_delete', '_controller' => 'App\\Controller\\RecipesController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        288 => [
+        224 => [[['_route' => 'app_allergens_show', '_controller' => 'App\\Controller\\AllergensController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        237 => [[['_route' => 'app_allergens_edit', '_controller' => 'App\\Controller\\AllergensController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        245 => [[['_route' => 'app_allergens_delete', '_controller' => 'App\\Controller\\AllergensController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        278 => [[['_route' => 'app_ingredients_show', '_controller' => 'App\\Controller\\IngredientsController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        291 => [[['_route' => 'app_ingredients_edit', '_controller' => 'App\\Controller\\IngredientsController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        299 => [[['_route' => 'app_ingredients_delete', '_controller' => 'App\\Controller\\IngredientsController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        338 => [[['_route' => 'app_nutritional_value_show', '_controller' => 'App\\Controller\\NutritionalValueController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        351 => [[['_route' => 'app_nutritional_value_edit', '_controller' => 'App\\Controller\\NutritionalValueController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        359 => [[['_route' => 'app_nutritional_value_delete', '_controller' => 'App\\Controller\\NutritionalValueController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        392 => [[['_route' => 'app_preparation_show', '_controller' => 'App\\Controller\\PreparationController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        405 => [[['_route' => 'app_preparation_edit', '_controller' => 'App\\Controller\\PreparationController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        413 => [[['_route' => 'app_preparation_delete', '_controller' => 'App\\Controller\\PreparationController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        445 => [[['_route' => 'app_recipes_show', '_controller' => 'App\\Controller\\RecipesController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        458 => [[['_route' => 'app_recipes_edit', '_controller' => 'App\\Controller\\RecipesController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        466 => [[['_route' => 'app_recipes_delete', '_controller' => 'App\\Controller\\RecipesController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        508 => [
             [['_route' => 'app_reset_password', 'token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

@@ -366,11 +366,39 @@
     <service id="App\Entity" class="App\Entity" abstract="true">
       <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
     </service>
+    <service id="App\Controller\AllergensController" class="App\Controller\AllergensController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QaaoWjx.App\Controller\AllergensController"/>
+      </call>
+    </service>
+    <service id="App\Controller\IngredientsController" class="App\Controller\IngredientsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QaaoWjx.App\Controller\IngredientsController"/>
+      </call>
+    </service>
     <service id="App\Controller\LoginController" class="App\Controller\LoginController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.QaaoWjx.App\Controller\LoginController"/>
+      </call>
+    </service>
+    <service id="App\Controller\NutritionalValueController" class="App\Controller\NutritionalValueController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QaaoWjx.App\Controller\NutritionalValueController"/>
+      </call>
+    </service>
+    <service id="App\Controller\PreparationController" class="App\Controller\PreparationController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QaaoWjx.App\Controller\PreparationController"/>
       </call>
     </service>
     <service id="App\Controller\Public\HomeController" class="App\Controller\Public\HomeController" public="true" autowire="true" autoconfigure="true">
@@ -418,7 +446,19 @@
         <argument type="service" id=".service_locator.QaaoWjx.App\Controller\UserController"/>
       </call>
     </service>
+    <service id="App\Form\AllergensType" class="App\Form\AllergensType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\ChangePasswordFormType" class="App\Form\ChangePasswordFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\IngredientsType" class="App\Form\IngredientsType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\NutritionalValueType" class="App\Form\NutritionalValueType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\PreparationType" class="App\Form\PreparationType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\RecipesType" class="App\Form\RecipesType" autowire="true" autoconfigure="true">
@@ -493,7 +533,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.wdmzJ69"/>
+      <argument type="service" id=".service_locator.5Yz7Y.G"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -1408,7 +1448,11 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\AllergensType</argument>
         <argument>App\Form\ChangePasswordFormType</argument>
+        <argument>App\Form\IngredientsType</argument>
+        <argument>App\Form\NutritionalValueType</argument>
+        <argument>App\Form\PreparationType</argument>
         <argument>App\Form\RecipesType</argument>
         <argument>App\Form\RegistrationFormType</argument>
         <argument>App\Form\ResetPasswordRequestFormType</argument>
@@ -3451,7 +3495,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.wdmzJ69"/>
+      <argument type="service" id=".service_locator.5Yz7Y.G"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -3961,7 +4005,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.Kb.8Qfq"/>
+      <argument type="service" id=".service_locator.Co4JPp5"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -6505,7 +6549,15 @@
         </service>
       </argument>
     </service>
-    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap"/>
+    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap">
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.y9.6UaE"/>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+    </service>
     <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener">
       <tag name="monolog.logger" channel="security"/>
       <argument type="service" id="security.untracked_token_storage"/>
@@ -7038,6 +7090,14 @@
         <argument key="security.firewall.map.context.main" type="service_closure" id="security.firewall.map.context.main"/>
       </argument>
     </service>
+    <service id=".security.request_matcher.l6nTaJG" class="Symfony\Component\HttpFoundation\RequestMatcher\PathRequestMatcher">
+      <argument>^/profile</argument>
+    </service>
+    <service id=".security.request_matcher.y9.6UaE" class="Symfony\Component\HttpFoundation\ChainRequestMatcher">
+      <argument type="collection">
+        <argument type="service" id=".security.request_matcher.l6nTaJG"/>
+      </argument>
+    </service>
     <service id="security.command.user_password_hash" class="Symfony\Component\PasswordHasher\Command\UserPasswordHashCommand">
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
@@ -7391,9 +7451,21 @@
       <tag name="kernel.event_listener" event="Symfony\Component\AssetMapper\Event\PreAssetsCompileEvent" method="__invoke"/>
       <argument type="service" id="sass.builder"/>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AllergensController" class="App\Controller\AllergensController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AllergensController" class="App\Controller\AllergensController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\AllergensController" class="App\Controller\AllergensController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\IngredientsController" class="App\Controller\IngredientsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\IngredientsController" class="App\Controller\IngredientsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\IngredientsController" class="App\Controller\IngredientsController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LoginController" class="App\Controller\LoginController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LoginController" class="App\Controller\LoginController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\LoginController" class="App\Controller\LoginController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\NutritionalValueController" class="App\Controller\NutritionalValueController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NutritionalValueController" class="App\Controller\NutritionalValueController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\NutritionalValueController" class="App\Controller\NutritionalValueController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PreparationController" class="App\Controller\PreparationController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PreparationController" class="App\Controller\PreparationController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\PreparationController" class="App\Controller\PreparationController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Public\HomeController" class="App\Controller\Public\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Public\HomeController" class="App\Controller\Public\HomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Public\HomeController" class="App\Controller\Public\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -7412,8 +7484,16 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AllergensType" class="App\Form\AllergensType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\AllergensType" class="App\Form\AllergensType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ChangePasswordFormType" class="App\Form\ChangePasswordFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ChangePasswordFormType" class="App\Form\ChangePasswordFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\IngredientsType" class="App\Form\IngredientsType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\IngredientsType" class="App\Form\IngredientsType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\NutritionalValueType" class="App\Form\NutritionalValueType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\NutritionalValueType" class="App\Form\NutritionalValueType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PreparationType" class="App\Form\PreparationType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\PreparationType" class="App\Form\PreparationType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RecipesType" class="App\Form\RecipesType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RecipesType" class="App\Form\RecipesType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
@@ -7970,6 +8050,208 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.4wc4Ag1" method="withContext"/>
     </service>
+    <service id=".service_locator.WVZNp01" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="allergensRepository" type="service_closure" id="App\Repository\AllergensRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.WVZNp01.App\Controller\AllergensController::index()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\AllergensController::index()"/>
+      <argument>App\Controller\AllergensController::index()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.WVZNp01" method="withContext"/>
+    </service>
+    <service id=".service_locator.P.blNFL" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.P.blNFL.App\Controller\AllergensController::new()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\AllergensController::new()"/>
+      <argument>App\Controller\AllergensController::new()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.P.blNFL" method="withContext"/>
+    </service>
+    <service id=".service_locator.9v.IfP6" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="allergen" type="service_closure" id=".errored..service_locator.9v.IfP6.App\Entity\Allergens"/>
+      </argument>
+    </service>
+    <service id=".service_locator.9v.IfP6.App\Controller\AllergensController::show()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\AllergensController::show()"/>
+      <argument>App\Controller\AllergensController::show()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.9v.IfP6" method="withContext"/>
+    </service>
+    <service id=".service_locator.lQqu4Uk" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="allergen" type="service_closure" id=".errored..service_locator.lQqu4Uk.App\Entity\Allergens"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.lQqu4Uk.App\Controller\AllergensController::edit()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\AllergensController::edit()"/>
+      <argument>App\Controller\AllergensController::edit()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.lQqu4Uk" method="withContext"/>
+    </service>
+    <service id=".service_locator.lQqu4Uk.App\Controller\AllergensController::delete()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\AllergensController::delete()"/>
+      <argument>App\Controller\AllergensController::delete()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.lQqu4Uk" method="withContext"/>
+    </service>
+    <service id=".service_locator.nB27ibM" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="ingredientsRepository" type="service_closure" id="App\Repository\IngredientsRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.nB27ibM.App\Controller\IngredientsController::index()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\IngredientsController::index()"/>
+      <argument>App\Controller\IngredientsController::index()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.nB27ibM" method="withContext"/>
+    </service>
+    <service id=".service_locator.P.blNFL.App\Controller\IngredientsController::new()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\IngredientsController::new()"/>
+      <argument>App\Controller\IngredientsController::new()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.P.blNFL" method="withContext"/>
+    </service>
+    <service id=".service_locator.CVL2Gc7" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="ingredient" type="service_closure" id=".errored..service_locator.CVL2Gc7.App\Entity\Ingredients"/>
+      </argument>
+    </service>
+    <service id=".service_locator.CVL2Gc7.App\Controller\IngredientsController::show()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\IngredientsController::show()"/>
+      <argument>App\Controller\IngredientsController::show()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.CVL2Gc7" method="withContext"/>
+    </service>
+    <service id=".service_locator.dsm4lW." class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="ingredient" type="service_closure" id=".errored..service_locator.dsm4lW..App\Entity\Ingredients"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.dsm4lW..App\Controller\IngredientsController::edit()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\IngredientsController::edit()"/>
+      <argument>App\Controller\IngredientsController::edit()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.dsm4lW." method="withContext"/>
+    </service>
+    <service id=".service_locator.dsm4lW..App\Controller\IngredientsController::delete()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\IngredientsController::delete()"/>
+      <argument>App\Controller\IngredientsController::delete()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.dsm4lW." method="withContext"/>
+    </service>
+    <service id=".service_locator.4I_SOOq" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="nutritionalValueRepository" type="service_closure" id="App\Repository\NutritionalValueRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.4I_SOOq.App\Controller\NutritionalValueController::index()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\NutritionalValueController::index()"/>
+      <argument>App\Controller\NutritionalValueController::index()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.4I_SOOq" method="withContext"/>
+    </service>
+    <service id=".service_locator.P.blNFL.App\Controller\NutritionalValueController::new()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\NutritionalValueController::new()"/>
+      <argument>App\Controller\NutritionalValueController::new()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.P.blNFL" method="withContext"/>
+    </service>
+    <service id=".service_locator.c84JWdN" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="nutritionalValue" type="service_closure" id=".errored..service_locator.c84JWdN.App\Entity\NutritionalValue"/>
+      </argument>
+    </service>
+    <service id=".service_locator.c84JWdN.App\Controller\NutritionalValueController::show()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\NutritionalValueController::show()"/>
+      <argument>App\Controller\NutritionalValueController::show()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.c84JWdN" method="withContext"/>
+    </service>
+    <service id=".service_locator.KtNFNtt" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="nutritionalValue" type="service_closure" id=".errored..service_locator.KtNFNtt.App\Entity\NutritionalValue"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.KtNFNtt.App\Controller\NutritionalValueController::edit()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\NutritionalValueController::edit()"/>
+      <argument>App\Controller\NutritionalValueController::edit()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.KtNFNtt" method="withContext"/>
+    </service>
+    <service id=".service_locator.KtNFNtt.App\Controller\NutritionalValueController::delete()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\NutritionalValueController::delete()"/>
+      <argument>App\Controller\NutritionalValueController::delete()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.KtNFNtt" method="withContext"/>
+    </service>
+    <service id=".service_locator.xkEhqmI" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="preparationRepository" type="service_closure" id="App\Repository\PreparationRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.xkEhqmI.App\Controller\PreparationController::index()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\PreparationController::index()"/>
+      <argument>App\Controller\PreparationController::index()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.xkEhqmI" method="withContext"/>
+    </service>
+    <service id=".service_locator.P.blNFL.App\Controller\PreparationController::new()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\PreparationController::new()"/>
+      <argument>App\Controller\PreparationController::new()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.P.blNFL" method="withContext"/>
+    </service>
+    <service id=".service_locator.LWoC41X" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="preparation" type="service_closure" id=".errored..service_locator.LWoC41X.App\Entity\Preparation"/>
+      </argument>
+    </service>
+    <service id=".service_locator.LWoC41X.App\Controller\PreparationController::show()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\PreparationController::show()"/>
+      <argument>App\Controller\PreparationController::show()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.LWoC41X" method="withContext"/>
+    </service>
+    <service id=".service_locator.fiWkhtY" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="preparation" type="service_closure" id=".errored..service_locator.fiWkhtY.App\Entity\Preparation"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.fiWkhtY.App\Controller\PreparationController::edit()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\PreparationController::edit()"/>
+      <argument>App\Controller\PreparationController::edit()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.fiWkhtY" method="withContext"/>
+    </service>
+    <service id=".service_locator.fiWkhtY.App\Controller\PreparationController::delete()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\PreparationController::delete()"/>
+      <argument>App\Controller\PreparationController::delete()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.fiWkhtY" method="withContext"/>
+    </service>
     <service id=".service_locator.LcQpFH2" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7981,12 +8263,6 @@
       <argument>App\Controller\RecipesController::index()</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.LcQpFH2" method="withContext"/>
-    </service>
-    <service id=".service_locator.P.blNFL" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
-      </argument>
     </service>
     <service id=".service_locator.P.blNFL.App\Controller\RecipesController::new()" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\RecipesController::new()"/>
@@ -8116,13 +8392,33 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.wYffHLf" method="withContext"/>
     </service>
-    <service id=".service_locator.wdmzJ69" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.5Yz7Y.G" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.4wc4Ag1.kernel::registerContainerConfiguration()"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.4wc4Ag1.kernel::registerContainerConfiguration()"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.4wc4Ag1.kernel::loadRoutes()"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.4wc4Ag1.kernel::loadRoutes()"/>
+        <argument key="App\Controller\AllergensController::index" type="service_closure" id=".service_locator.WVZNp01.App\Controller\AllergensController::index()"/>
+        <argument key="App\Controller\AllergensController::new" type="service_closure" id=".service_locator.P.blNFL.App\Controller\AllergensController::new()"/>
+        <argument key="App\Controller\AllergensController::show" type="service_closure" id=".service_locator.9v.IfP6.App\Controller\AllergensController::show()"/>
+        <argument key="App\Controller\AllergensController::edit" type="service_closure" id=".service_locator.lQqu4Uk.App\Controller\AllergensController::edit()"/>
+        <argument key="App\Controller\AllergensController::delete" type="service_closure" id=".service_locator.lQqu4Uk.App\Controller\AllergensController::delete()"/>
+        <argument key="App\Controller\IngredientsController::index" type="service_closure" id=".service_locator.nB27ibM.App\Controller\IngredientsController::index()"/>
+        <argument key="App\Controller\IngredientsController::new" type="service_closure" id=".service_locator.P.blNFL.App\Controller\IngredientsController::new()"/>
+        <argument key="App\Controller\IngredientsController::show" type="service_closure" id=".service_locator.CVL2Gc7.App\Controller\IngredientsController::show()"/>
+        <argument key="App\Controller\IngredientsController::edit" type="service_closure" id=".service_locator.dsm4lW..App\Controller\IngredientsController::edit()"/>
+        <argument key="App\Controller\IngredientsController::delete" type="service_closure" id=".service_locator.dsm4lW..App\Controller\IngredientsController::delete()"/>
+        <argument key="App\Controller\NutritionalValueController::index" type="service_closure" id=".service_locator.4I_SOOq.App\Controller\NutritionalValueController::index()"/>
+        <argument key="App\Controller\NutritionalValueController::new" type="service_closure" id=".service_locator.P.blNFL.App\Controller\NutritionalValueController::new()"/>
+        <argument key="App\Controller\NutritionalValueController::show" type="service_closure" id=".service_locator.c84JWdN.App\Controller\NutritionalValueController::show()"/>
+        <argument key="App\Controller\NutritionalValueController::edit" type="service_closure" id=".service_locator.KtNFNtt.App\Controller\NutritionalValueController::edit()"/>
+        <argument key="App\Controller\NutritionalValueController::delete" type="service_closure" id=".service_locator.KtNFNtt.App\Controller\NutritionalValueController::delete()"/>
+        <argument key="App\Controller\PreparationController::index" type="service_closure" id=".service_locator.xkEhqmI.App\Controller\PreparationController::index()"/>
+        <argument key="App\Controller\PreparationController::new" type="service_closure" id=".service_locator.P.blNFL.App\Controller\PreparationController::new()"/>
+        <argument key="App\Controller\PreparationController::show" type="service_closure" id=".service_locator.LWoC41X.App\Controller\PreparationController::show()"/>
+        <argument key="App\Controller\PreparationController::edit" type="service_closure" id=".service_locator.fiWkhtY.App\Controller\PreparationController::edit()"/>
+        <argument key="App\Controller\PreparationController::delete" type="service_closure" id=".service_locator.fiWkhtY.App\Controller\PreparationController::delete()"/>
         <argument key="App\Controller\RecipesController::index" type="service_closure" id=".service_locator.LcQpFH2.App\Controller\RecipesController::index()"/>
         <argument key="App\Controller\RecipesController::new" type="service_closure" id=".service_locator.P.blNFL.App\Controller\RecipesController::new()"/>
         <argument key="App\Controller\RecipesController::show" type="service_closure" id=".service_locator.Ppg3BlS.App\Controller\RecipesController::show()"/>
@@ -8137,6 +8433,26 @@
         <argument key="App\Controller\UserController::delete" type="service_closure" id=".service_locator.wYffHLf.App\Controller\UserController::delete()"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.4wc4Ag1.kernel::registerContainerConfiguration()"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.4wc4Ag1.kernel::loadRoutes()"/>
+        <argument key="App\Controller\AllergensController:index" type="service_closure" id=".service_locator.WVZNp01.App\Controller\AllergensController::index()"/>
+        <argument key="App\Controller\AllergensController:new" type="service_closure" id=".service_locator.P.blNFL.App\Controller\AllergensController::new()"/>
+        <argument key="App\Controller\AllergensController:show" type="service_closure" id=".service_locator.9v.IfP6.App\Controller\AllergensController::show()"/>
+        <argument key="App\Controller\AllergensController:edit" type="service_closure" id=".service_locator.lQqu4Uk.App\Controller\AllergensController::edit()"/>
+        <argument key="App\Controller\AllergensController:delete" type="service_closure" id=".service_locator.lQqu4Uk.App\Controller\AllergensController::delete()"/>
+        <argument key="App\Controller\IngredientsController:index" type="service_closure" id=".service_locator.nB27ibM.App\Controller\IngredientsController::index()"/>
+        <argument key="App\Controller\IngredientsController:new" type="service_closure" id=".service_locator.P.blNFL.App\Controller\IngredientsController::new()"/>
+        <argument key="App\Controller\IngredientsController:show" type="service_closure" id=".service_locator.CVL2Gc7.App\Controller\IngredientsController::show()"/>
+        <argument key="App\Controller\IngredientsController:edit" type="service_closure" id=".service_locator.dsm4lW..App\Controller\IngredientsController::edit()"/>
+        <argument key="App\Controller\IngredientsController:delete" type="service_closure" id=".service_locator.dsm4lW..App\Controller\IngredientsController::delete()"/>
+        <argument key="App\Controller\NutritionalValueController:index" type="service_closure" id=".service_locator.4I_SOOq.App\Controller\NutritionalValueController::index()"/>
+        <argument key="App\Controller\NutritionalValueController:new" type="service_closure" id=".service_locator.P.blNFL.App\Controller\NutritionalValueController::new()"/>
+        <argument key="App\Controller\NutritionalValueController:show" type="service_closure" id=".service_locator.c84JWdN.App\Controller\NutritionalValueController::show()"/>
+        <argument key="App\Controller\NutritionalValueController:edit" type="service_closure" id=".service_locator.KtNFNtt.App\Controller\NutritionalValueController::edit()"/>
+        <argument key="App\Controller\NutritionalValueController:delete" type="service_closure" id=".service_locator.KtNFNtt.App\Controller\NutritionalValueController::delete()"/>
+        <argument key="App\Controller\PreparationController:index" type="service_closure" id=".service_locator.xkEhqmI.App\Controller\PreparationController::index()"/>
+        <argument key="App\Controller\PreparationController:new" type="service_closure" id=".service_locator.P.blNFL.App\Controller\PreparationController::new()"/>
+        <argument key="App\Controller\PreparationController:show" type="service_closure" id=".service_locator.LWoC41X.App\Controller\PreparationController::show()"/>
+        <argument key="App\Controller\PreparationController:edit" type="service_closure" id=".service_locator.fiWkhtY.App\Controller\PreparationController::edit()"/>
+        <argument key="App\Controller\PreparationController:delete" type="service_closure" id=".service_locator.fiWkhtY.App\Controller\PreparationController::delete()"/>
         <argument key="App\Controller\RecipesController:index" type="service_closure" id=".service_locator.LcQpFH2.App\Controller\RecipesController::index()"/>
         <argument key="App\Controller\RecipesController:new" type="service_closure" id=".service_locator.P.blNFL.App\Controller\RecipesController::new()"/>
         <argument key="App\Controller\RecipesController:show" type="service_closure" id=".service_locator.Ppg3BlS.App\Controller\RecipesController::show()"/>
@@ -8308,10 +8624,14 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.Kb.8Qfq" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.Co4JPp5" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\AllergensType" type="service_closure" id="App\Form\AllergensType"/>
         <argument key="App\Form\ChangePasswordFormType" type="service_closure" id="App\Form\ChangePasswordFormType"/>
+        <argument key="App\Form\IngredientsType" type="service_closure" id="App\Form\IngredientsType"/>
+        <argument key="App\Form\NutritionalValueType" type="service_closure" id="App\Form\NutritionalValueType"/>
+        <argument key="App\Form\PreparationType" type="service_closure" id="App\Form\PreparationType"/>
         <argument key="App\Form\RecipesType" type="service_closure" id="App\Form\RecipesType"/>
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
         <argument key="App\Form\ResetPasswordRequestFormType" type="service_closure" id="App\Form\ResetPasswordRequestFormType"/>
@@ -8688,9 +9008,33 @@
         <argument key="web_link.http_header_serializer" type="service_closure" id="web_link.http_header_serializer" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.QaaoWjx.App\Controller\AllergensController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\AllergensController"/>
+      <argument>App\Controller\AllergensController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QaaoWjx" method="withContext"/>
+    </service>
+    <service id=".service_locator.QaaoWjx.App\Controller\IngredientsController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\IngredientsController"/>
+      <argument>App\Controller\IngredientsController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QaaoWjx" method="withContext"/>
+    </service>
     <service id=".service_locator.QaaoWjx.App\Controller\LoginController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\LoginController"/>
       <argument>App\Controller\LoginController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QaaoWjx" method="withContext"/>
+    </service>
+    <service id=".service_locator.QaaoWjx.App\Controller\NutritionalValueController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\NutritionalValueController"/>
+      <argument>App\Controller\NutritionalValueController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QaaoWjx" method="withContext"/>
+    </service>
+    <service id=".service_locator.QaaoWjx.App\Controller\PreparationController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\PreparationController"/>
+      <argument>App\Controller\PreparationController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.QaaoWjx" method="withContext"/>
     </service>
@@ -8913,7 +9257,11 @@
       <call method="allowControllers">
         <argument type="collection">
           <argument>App\Kernel</argument>
+          <argument>App\Controller\AllergensController</argument>
+          <argument>App\Controller\IngredientsController</argument>
           <argument>App\Controller\LoginController</argument>
+          <argument>App\Controller\NutritionalValueController</argument>
+          <argument>App\Controller\PreparationController</argument>
           <argument>App\Controller\Public\HomeController</argument>
           <argument>App\Controller\RecipesController</argument>
           <argument>App\Controller\RegistrationController</argument>
@@ -9119,6 +9467,30 @@
     </service>
     <service id=".errored..service_locator.4wc4Ag1.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.4wc4Ag1&quot;: it needs an instance of &quot;Symfony\Component\Config\Loader\LoaderInterface&quot; but this type has been excluded from autowiring."/>
+    </service>
+    <service id=".errored..service_locator.9v.IfP6.App\Entity\Allergens" class="App\Entity\Allergens">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.9v.IfP6&quot;: it needs an instance of &quot;App\Entity\Allergens&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.lQqu4Uk.App\Entity\Allergens" class="App\Entity\Allergens">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.lQqu4Uk&quot;: it needs an instance of &quot;App\Entity\Allergens&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.CVL2Gc7.App\Entity\Ingredients" class="App\Entity\Ingredients">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.CVL2Gc7&quot;: it needs an instance of &quot;App\Entity\Ingredients&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.dsm4lW..App\Entity\Ingredients" class="App\Entity\Ingredients">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.dsm4lW.&quot;: it needs an instance of &quot;App\Entity\Ingredients&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.c84JWdN.App\Entity\NutritionalValue" class="App\Entity\NutritionalValue">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.c84JWdN&quot;: it needs an instance of &quot;App\Entity\NutritionalValue&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.KtNFNtt.App\Entity\NutritionalValue" class="App\Entity\NutritionalValue">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.KtNFNtt&quot;: it needs an instance of &quot;App\Entity\NutritionalValue&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.LWoC41X.App\Entity\Preparation" class="App\Entity\Preparation">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.LWoC41X&quot;: it needs an instance of &quot;App\Entity\Preparation&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.fiWkhtY.App\Entity\Preparation" class="App\Entity\Preparation">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.fiWkhtY&quot;: it needs an instance of &quot;App\Entity\Preparation&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
     <service id=".errored..service_locator.Ppg3BlS.App\Entity\Recipes" class="App\Entity\Recipes">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.Ppg3BlS&quot;: it needs an instance of &quot;App\Entity\Recipes&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
@@ -10312,7 +10684,7 @@
     <service id="SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface" alias="symfonycasts.verify_email.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.pRu6x_4" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.wdmzJ69"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.5Yz7Y.G"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.BxSdgVt"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -10356,8 +10728,20 @@
     <service id="messenger.bus.default" alias="debug.traced.messenger.bus.default"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator.diNoEIK" alias=".service_locator.4wc4Ag1"/>
-    <service id=".service_locator._lpvF28" alias=".service_locator.LcQpFH2"/>
+    <service id=".service_locator.DXLRfUk" alias=".service_locator.WVZNp01"/>
     <service id=".service_locator.4KsIGyf" alias=".service_locator.P.blNFL"/>
+    <service id=".service_locator.Qmy.uLK" alias=".service_locator.9v.IfP6"/>
+    <service id=".service_locator.DDMYv3l" alias=".service_locator.lQqu4Uk"/>
+    <service id=".service_locator.MvMMp8s" alias=".service_locator.nB27ibM"/>
+    <service id=".service_locator.81ps374" alias=".service_locator.CVL2Gc7"/>
+    <service id=".service_locator.TyiltRw" alias=".service_locator.dsm4lW."/>
+    <service id=".service_locator.YFKc3tH" alias=".service_locator.4I_SOOq"/>
+    <service id=".service_locator.CqPl1Ri" alias=".service_locator.c84JWdN"/>
+    <service id=".service_locator.8w_au85" alias=".service_locator.KtNFNtt"/>
+    <service id=".service_locator.nTwpG8O" alias=".service_locator.xkEhqmI"/>
+    <service id=".service_locator.JoURK0g" alias=".service_locator.LWoC41X"/>
+    <service id=".service_locator.6FYlmdQ" alias=".service_locator.fiWkhtY"/>
+    <service id=".service_locator._lpvF28" alias=".service_locator.LcQpFH2"/>
     <service id=".service_locator.WB7P5aA" alias=".service_locator.Ppg3BlS"/>
     <service id=".service_locator._DsEqjM" alias=".service_locator.NQNr8_k"/>
     <service id=".service_locator.po3y92J" alias=".service_locator.g9BceMG"/>

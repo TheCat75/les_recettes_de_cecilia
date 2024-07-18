@@ -21,9 +21,6 @@ class Recipes
     #[ORM\ManyToMany(targetEntity: Ingredients::class, inversedBy: 'Recipe')]
     private Collection $Ingredients;
 
-    
-
-    
     /**
      * @var Collection<int, Preparation>
      */

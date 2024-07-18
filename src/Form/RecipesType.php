@@ -23,7 +23,7 @@ class RecipesType extends AbstractType
             ])
             ->add('allergens', EntityType::class, [
                 'class' => Allergens::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
                 'multiple' => true,
             ])
             ->add('NutritionalValue', EntityType::class, [
