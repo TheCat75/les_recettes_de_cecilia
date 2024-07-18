@@ -23,9 +23,8 @@ return [
         '/reset-password/check-email' => [[['_route' => 'app_check_email', '_controller' => 'App\\Controller\\ResetPasswordController::checkEmail'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
-        '/user' => [[['_route' => 'app_user_index', '_controller' => 'App\\Controller\\UserController::index'], null, ['GET' => 0], null, true, false, null]],
-        '/user/new' => [[['_route' => 'app_user_new', '_controller' => 'App\\Controller\\UserController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/user/profil' => [[['_route' => 'app_user_show', '_controller' => 'App\\Controller\\UserController::show'], null, ['GET' => 0], null, false, false, null]],
+        '/profil' => [[['_route' => 'app_user_show', '_controller' => 'App\\Controller\\UserController::show'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
+        '/profil/delete' => [[['_route' => 'app_user_delete', '_controller' => 'App\\Controller\\UserController::delete'], null, ['POST' => 0], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -55,10 +54,6 @@ return [
                     .')'
                     .'|set\\-password/reset(?:/([^/]++))?(*:288)'
                 .')'
-                .'|/user/([^/]++)(?'
-                    .'|/edit(*:319)'
-                    .'|(*:327)'
-                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -73,10 +68,8 @@ return [
         225 => [[['_route' => 'app_recipes_show', '_controller' => 'App\\Controller\\RecipesController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         238 => [[['_route' => 'app_recipes_edit', '_controller' => 'App\\Controller\\RecipesController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         246 => [[['_route' => 'app_recipes_delete', '_controller' => 'App\\Controller\\RecipesController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        288 => [[['_route' => 'app_reset_password', 'token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], ['token'], null, null, false, true, null]],
-        319 => [[['_route' => 'app_user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        327 => [
-            [['_route' => 'app_user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['POST' => 0], null, false, true, null],
+        288 => [
+            [['_route' => 'app_reset_password', 'token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

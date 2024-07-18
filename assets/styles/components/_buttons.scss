@@ -2,7 +2,7 @@
     background-color: purple;
     color: white;
     text-align: center;
-    padding: 1rem;
+    padding: .5rem 1rem;
     border-radius: .5rem;
     font-weight: bold;
 }
@@ -12,3 +12,8 @@
     border: 1px solid purple;
     color: purple;
 }
+
+.btn-diplay-none {
+    display: none !important;
+}
+
