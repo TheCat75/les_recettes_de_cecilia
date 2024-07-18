@@ -61,3 +61,23 @@ a40a28,127.0.0.1,GET,https://127.0.0.1:8000/login,1721173199,,200,request
 3bb487,127.0.0.1,GET,https://127.0.0.1:8000/register,1721173206,,200,request
 07ac18,127.0.0.1,GET,https://127.0.0.1:8000/register,1721173232,,200,request
 4189d8,127.0.0.1,GET,https://127.0.0.1:8000/,1721173233,,200,request
+<<<<<<< HEAD
+bdabcc,127.0.0.1,GET,https://127.0.0.1:8000/register,1721173397,,200,request
+c215ef,127.0.0.1,GET,https://127.0.0.1:8000/login,1721173402,,200,request
+b3af4e,127.0.0.1,GET,https://127.0.0.1:8000/,1721173406,,200,request
+c6deef,127.0.0.1,GET,https://127.0.0.1:8000/,1721173440,,200,request
+d7512e,127.0.0.1,GET,https://127.0.0.1:8000/,1721173460,,200,request
+b3675c,127.0.0.1,GET,https://127.0.0.1:8000/register,1721173461,,200,request
+37b814,127.0.0.1,GET,https://127.0.0.1:8000/,1721173508,,200,request
+=======
+>>>>>>> parent of 716863e (ajout du btn inscription page home)
+17a93c,127.0.0.1,GET,https://127.0.0.1:8000/,1721309131,,200,request
+b9783e,127.0.0.1,GET,https://127.0.0.1:8000/assets/styles/app.output.css.map,1721309131,b51cfa,404,request
+b51cfa,127.0.0.1,GET,https://127.0.0.1:8000/assets/styles/app.output.css.map,1721309131,,404,request
+733c7a,127.0.0.1,GET,https://127.0.0.1:8000/register,1721309133,d8ffff,500,request
+d8ffff,127.0.0.1,GET,https://127.0.0.1:8000/register,1721309133,,500,request
+b6b76c,127.0.0.1,GET,https://127.0.0.1:8000/register,1721309144,,200,request
+9e46ca,127.0.0.1,GET,https://127.0.0.1:8000/...,1721309144,678ff8,404,request
+678ff8,127.0.0.1,GET,https://127.0.0.1:8000/...,1721309144,,404,request
+c06667,127.0.0.1,GET,https://127.0.0.1:8000/assets/styles/app.output.css.map,1721309145,8aa069,404,request
+8aa069,127.0.0.1,GET,https://127.0.0.1:8000/assets/styles/app.output.css.map,1721309145,,404,request
