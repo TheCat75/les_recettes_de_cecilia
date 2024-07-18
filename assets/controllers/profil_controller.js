@@ -36,22 +36,23 @@ export default class extends Controller {
         const token = this.btnDeleteTarget.getAttribute('value');
         const name = this.btnDeleteTarget.getAttribute('name');
         const uri = window.location.href
-        const url = uri + 'delete';
         console.log(token);
-        fetch(url, {
+        fetch(uri + 'delete', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRF-Token': token
             },
-            body: JSON.stringify({ name: name, token: token })
+            body: JSON.stringify({ name: name })
         })
         .then(response => {
-            console.log(response);
+
             if (response.status != 200) {
                 throw new Error('Erreur réseau lors de la requête fetch.');
             }
-            window.location.href = uri.replace(/profil\//g, "");
+
+            window.location.href = uri.replace(/profile\//g, "");
+
         }).catch(error => console.error(error));
     }
 }

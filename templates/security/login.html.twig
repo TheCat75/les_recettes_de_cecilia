@@ -30,42 +30,36 @@
 						<label for="password">Password</label>
 						<input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
 
-						<input
-						type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+						<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-						{#
-						            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-						            See https://symfony.com/doc/current/security/remember_me.html
-						
-						            <div class="checkbox mb-3">
-						                <input type="checkbox" name="_remember_me" id="_remember_me">
-						                <label for="_remember_me">Remember me</label>
-						            </div>
-						        #}
-                        <div class="row mt-3">
-                            <div class="col d-flex justify-content-center">
-                                <button class="btn btn-with-bg text-uppercase fw-bold" type="submit">
-                                    Connectez-vous
-                                </button>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col d-flex justify-content-center">
-                                <p>Vous avez oublié votre mot de passe
-                                    <a href="{{ path('app_forgot_password_request') }}" class="link-bg-white">Mot de passe oublié</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col d-flex justify-content-center">
-                                <p>Vous n'avez pas de compte
-                                    <a href="{{ path('app_register') }}" class="link-bg-white">Crée un compte</a>
-                                </p>
-                            </div>
-                        </div>
+						<div class="checkbox mb-3">
+							<input type="checkbox" name="_remember_me" id="_remember_me">
+							<label for="_remember_me">Remember me</label>
+						</div>
+						<div class="row mt-3">
+							<div class="col d-flex justify-content-center">
+								<button class="btn btn-with-bg text-uppercase fw-bold" type="submit">
+									Connectez-vous
+								</button>
+							</div>
+						</div>
+						<div class="row mt-3">
+							<div class="col d-flex justify-content-center">
+								<p>Vous avez oublié votre mot de passe
+									<a href="{{ path('app_forgot_password_request') }}" class="link-bg-white">Mot de passe oublié</a>
+								</p>
+							</div>
+						</div>
+						<div class="row mt-3">
+							<div class="col d-flex justify-content-center">
+								<p>Vous n'avez pas de compte
+									<a href="{{ path('app_register') }}" class="link-bg-white">Crée un compte</a>
+								</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-        </div>
+		</div>
 	</form>
-	{% endblock %}
+{% endblock %}
