@@ -177,3 +177,7 @@ a91c27,127.0.0.1,GET,https://127.0.0.1:8000/reset-password,1721310771,,200,reque
 216f62,127.0.0.1,GET,https://127.0.0.1:8000/reset-password,1721311216,,200,request
 c8a597,127.0.0.1,GET,https://127.0.0.1:8000/reset-password,1721311230,,200,request
 805c03,127.0.0.1,GET,https://127.0.0.1:8000/register,1721311242,,200,request
+6401ca,127.0.0.1,GET,https://127.0.0.1:8000/,1721311333,,200,request
+e1fff5,127.0.0.1,GET,https://127.0.0.1:8000/,1721311387,,200,request
+4a04f0,127.0.0.1,GET,https://127.0.0.1:8000/register,1721311388,,200,request
+51ecab,127.0.0.1,GET,https://127.0.0.1:8000/,1721311392,,200,request
