@@ -1,0 +1,80 @@
+<div{{ attributes }}>
+   {{ form_start(form) }}
+        <div class="row">
+            <div class="col-4">
+                {{ form_row(form.name, {
+                    attr: {
+                        placeholder: 'Nom de la recette'
+                    }
+                }) }}
+            </div>
+        </div>
+
+        <table class="table table-borderless form-no-mb">
+            <thead>
+                <tr>
+                    <td>Allergènes</td>
+                    <td>Ingrédients</td>
+                    <td>Étapes</td>
+                    <td>Valeurs nutritionnelles</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for allergen_form in form.allergens %}
+                    <tr>
+                        <td>
+                            {{ form_row(allergen_form, {
+        
+                                row_attr: {class: 'mb-1'},
+                                attr: {
+                                    placeholder: 'Allergène'
+                                }
+                            }) }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% for ingredien_form in form.ingrediens %}
+                    <tr>
+                        <td>
+                            {{ form_row(ingredien_form, {
+        
+                                row_attr: {class: 'mb-1'},
+                                attr: {
+                                    placeholder: 'Ingrédient'
+                                }
+                            }) }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% for step_form in form.steps %}
+                    <tr>
+                        <td>
+                            {{ form_row(step_form, {
+        
+                                row_attr: {class: 'mb-1'},
+                                attr: {
+                                    placeholder: 'Étape'
+                                }
+                            }) }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% for nutritionalValue_form in form.nutritionalValues %}
+                    <tr>
+                        <td>
+                            {{ form_row(nutritionalValue_form, {
+        
+                                row_attr: {class: 'mb-1'},
+                                attr: {
+                                    placeholder: 'Valeur nutritionnelle'
+                                }
+                            }) }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <button type="submit" class="btn btn-success" formnovalidate>Enregistrer</button>
+    {{ form_end(form) }}
+</div>

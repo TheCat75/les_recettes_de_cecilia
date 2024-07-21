@@ -24,25 +24,25 @@ class Receipes
     /**
      * @var Collection<int, Allergens>
      */
-    #[ORM\ManyToMany(targetEntity: Allergens::class, inversedBy: 'receipes')]
+    #[ORM\ManyToMany(targetEntity: Allergens::class, inversedBy: 'receipes', cascade: ['persist'])]
     private Collection $allergens;
 
     /**
      * @var Collection<int, Ingrediens>
      */
-    #[ORM\ManyToMany(targetEntity: Ingrediens::class, mappedBy: 'receipes')]
+    #[ORM\ManyToMany(targetEntity: Ingrediens::class, mappedBy: 'receipes', cascade: ['persist'])]
     private Collection $ingrediens;
 
     /**
      * @var Collection<int, Steps>
      */
-    #[ORM\OneToMany(targetEntity: Steps::class, mappedBy: 'receipes')]
+    #[ORM\OneToMany(targetEntity: Steps::class, mappedBy: 'receipes', cascade: ['persist'])]
     private Collection $steps;
 
     /**
      * @var Collection<int, NutritionalValues>
      */
-    #[ORM\OneToMany(targetEntity: NutritionalValues::class, mappedBy: 'receipes')]
+    #[ORM\OneToMany(targetEntity: NutritionalValues::class, mappedBy: 'receipes', cascade: ['persist'])]
     private Collection $nutritionalValues;
 
     public function __construct()

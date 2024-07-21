@@ -2,34 +2,30 @@
 
 namespace App\Twig\Components;
 
+
 use App\Entity\Receipes;
-use App\Form\ReceipesType;
+use App\Form\ReceipeFormType;
+use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
+use Symfony\UX\LiveComponent\DefaultActionTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
-use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
-use Symfony\UX\LiveComponent\DefaultActionTrait;
+
 use Symfony\UX\LiveComponent\LiveCollectionTrait;
 
 #[AsLiveComponent]
-final class Reciepes extends AbstractController
+class ReceipeComponent extends AbstractController
 {
     use DefaultActionTrait;
     use LiveCollectionTrait;
 
-    #[LiveProp]
+    #[LiveProp(fieldName: 'formData')]
     public ?Receipes $receipes;
-
-    public function __construct()
-    {
-        $this->receipes = new Receipes();
-    }
-    
 
     protected function instantiateForm(): FormInterface
     {
         return $this->createForm(
-            ReceipesType::class,
+            ReceipeFormType::class,
             $this->receipes
         );
     }
