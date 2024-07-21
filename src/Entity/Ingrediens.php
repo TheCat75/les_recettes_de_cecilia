@@ -2,16 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\AllergensRepository;
+use App\Repository\IngrediensRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Gedmo\Timestampable\Traits\Timestampable;
 
-#[ORM\Entity(repositoryClass: AllergensRepository::class)]
-class Allergens
+#[ORM\Entity(repositoryClass: IngrediensRepository::class)]
+class Ingrediens
 {
-    use TimestampableEntity;
+    use Timestampable;
     
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,10 +21,13 @@ class Allergens
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[ORM\Column]
+    private ?int $quantities = null;
+
     /**
      * @var Collection<int, Receipes>
      */
-    #[ORM\ManyToMany(targetEntity: Receipes::class, mappedBy: 'allergens')]
+    #[ORM\ManyToMany(targetEntity: Receipes::class, inversedBy: 'ingrediens')]
     private Collection $receipes;
 
     public function __construct()
@@ -49,6 +52,18 @@ class Allergens
         return $this;
     }
 
+    public function getQuantities(): ?int
+    {
+        return $this->quantities;
+    }
+
+    public function setQuantities(int $quantities): static
+    {
+        $this->quantities = $quantities;
+
+        return $this;
+    }
+
     /**
      * @return Collection<int, Receipes>
      */
@@ -61,7 +76,6 @@ class Allergens
     {
         if (!$this->receipes->contains($receipe)) {
             $this->receipes->add($receipe);
-            $receipe->addAllergen($this);
         }
 
         return $this;
@@ -69,9 +83,7 @@ class Allergens
 
     public function removeReceipe(Receipes $receipe): static
     {
-        if ($this->receipes->removeElement($receipe)) {
-            $receipe->removeAllergen($this);
-        }
+        $this->receipes->removeElement($receipe);
 
         return $this;
     }
