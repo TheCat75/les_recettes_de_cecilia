@@ -29,7 +29,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute('app_user_show', [], Response::HTTP_SEE_OTHER);
         }
         
-        return $this->render('user/show.html.twig', [
+        return $this->render('pages/user/show.html.twig', [
             'user' => $user,
             'form' => $form,
         ]);
