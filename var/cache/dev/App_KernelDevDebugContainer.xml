@@ -499,6 +499,9 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Security\AccessDeniedHandler" class="App\Security\AccessDeniedHandler" autowire="true" autoconfigure="true">
+      <argument type="service" id="twig"/>
+    </service>
     <service id="App\Security\EmailVerifier" class="App\Security\EmailVerifier" autowire="true" autoconfigure="true">
       <argument type="service" id="symfonycasts.verify_email.helper"/>
       <argument type="service" id="mailer.mailer"/>
@@ -7046,7 +7049,7 @@
       <argument>security.user.provider.concrete.app_user_provider</argument>
       <argument>main</argument>
       <argument>security.authenticator.form_login.main</argument>
-      <argument>null</argument>
+      <argument>App\Security\AccessDeniedHandler</argument>
       <argument>null</argument>
       <argument type="collection">
         <argument>form_login</argument>
@@ -7186,7 +7189,7 @@
       <argument>main</argument>
       <argument type="service" id="security.authenticator.form_login.main"/>
       <argument>null</argument>
-      <argument>null</argument>
+      <argument type="service" id="App\Security\AccessDeniedHandler"/>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument>false</argument>
     </service>
