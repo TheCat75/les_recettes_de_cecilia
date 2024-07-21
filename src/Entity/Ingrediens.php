@@ -6,12 +6,12 @@ use App\Repository\IngrediensRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Timestampable\Traits\Timestampable;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 #[ORM\Entity(repositoryClass: IngrediensRepository::class)]
 class Ingrediens
 {
-    use Timestampable;
+    use TimestampableEntity;
     
     #[ORM\Id]
     #[ORM\GeneratedValue]
