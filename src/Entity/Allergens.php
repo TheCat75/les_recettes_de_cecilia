@@ -5,14 +5,11 @@ namespace App\Entity;
 use App\Repository\AllergensRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: AllergensRepository::class)]
 class Allergens
 {
-
     use TimestampableEntity;
-
     
     #[ORM\Id]
     #[ORM\GeneratedValue]

@@ -282,14 +282,14 @@
         </parameter>
       </parameter>
     </parameter>
-    <parameter key="stof_doctrine_extensions.default_locale">en_US</parameter>
+    <parameter key="stof_doctrine_extensions.listener.timestampable.class">Gedmo\Timestampable\TimestampableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.sluggable.class">Gedmo\Sluggable\SluggableListener</parameter>
+    <parameter key="stof_doctrine_extensions.default_locale">fr_FR</parameter>
     <parameter key="stof_doctrine_extensions.translation_fallback">false</parameter>
     <parameter key="stof_doctrine_extensions.persist_default_translation">false</parameter>
     <parameter key="stof_doctrine_extensions.skip_translation_on_load">false</parameter>
     <parameter key="stof_doctrine_extensions.listener.translatable.class">Gedmo\Translatable\TranslatableListener</parameter>
-    <parameter key="stof_doctrine_extensions.listener.timestampable.class">Gedmo\Timestampable\TimestampableListener</parameter>
     <parameter key="stof_doctrine_extensions.listener.blameable.class">Gedmo\Blameable\BlameableListener</parameter>
-    <parameter key="stof_doctrine_extensions.listener.sluggable.class">Gedmo\Sluggable\SluggableListener</parameter>
     <parameter key="stof_doctrine_extensions.listener.tree.class">Gedmo\Tree\TreeListener</parameter>
     <parameter key="stof_doctrine_extensions.listener.loggable.class">Gedmo\Loggable\LoggableListener</parameter>
     <parameter key="stof_doctrine_extensions.listener.sortable.class">Gedmo\Sortable\SortableListener</parameter>
@@ -5225,7 +5225,7 @@
       </call>
     </service>
     <service id="doctrine.dbal.default_connection.event_manager" class="Symfony\Bridge\Doctrine\ContainerAwareEventManager">
-      <argument type="service" id=".service_locator.wy_sXIY"/>
+      <argument type="service" id=".service_locator.FgWyuYA"/>
       <argument type="collection">
         <argument type="collection">
           <argument type="collection">
@@ -5280,6 +5280,42 @@
             <argument>postFlush</argument>
           </argument>
           <argument>turbo.doctrine.event_listener</argument>
+        </argument>
+        <argument type="collection">
+          <argument type="collection">
+            <argument>prePersist</argument>
+          </argument>
+          <argument>stof_doctrine_extensions.listener.timestampable</argument>
+        </argument>
+        <argument type="collection">
+          <argument type="collection">
+            <argument>onFlush</argument>
+          </argument>
+          <argument>stof_doctrine_extensions.listener.timestampable</argument>
+        </argument>
+        <argument type="collection">
+          <argument type="collection">
+            <argument>loadClassMetadata</argument>
+          </argument>
+          <argument>stof_doctrine_extensions.listener.timestampable</argument>
+        </argument>
+        <argument type="collection">
+          <argument type="collection">
+            <argument>prePersist</argument>
+          </argument>
+          <argument>stof_doctrine_extensions.listener.sluggable</argument>
+        </argument>
+        <argument type="collection">
+          <argument type="collection">
+            <argument>onFlush</argument>
+          </argument>
+          <argument>stof_doctrine_extensions.listener.sluggable</argument>
+        </argument>
+        <argument type="collection">
+          <argument type="collection">
+            <argument>loadClassMetadata</argument>
+          </argument>
+          <argument>stof_doctrine_extensions.listener.sluggable</argument>
         </argument>
       </argument>
     </service>
@@ -6672,13 +6708,6 @@
     </service>
     <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap">
       <call method="add">
-        <argument type="service" id=".security.request_matcher.SVK5D2B"/>
-        <argument type="collection">
-          <argument>ROLE_ADMIN</argument>
-        </argument>
-        <argument>null</argument>
-      </call>
-      <call method="add">
         <argument type="service" id=".security.request_matcher.y9.6UaE"/>
         <argument type="collection">
           <argument>ROLE_USER</argument>
@@ -7216,14 +7245,6 @@
       <argument type="collection">
         <argument key="security.firewall.map.context.dev" type="service_closure" id="security.firewall.map.context.dev"/>
         <argument key="security.firewall.map.context.main" type="service_closure" id="security.firewall.map.context.main"/>
-      </argument>
-    </service>
-    <service id=".security.request_matcher.pqyCXG8" class="Symfony\Component\HttpFoundation\RequestMatcher\PathRequestMatcher">
-      <argument>^/admin</argument>
-    </service>
-    <service id=".security.request_matcher.SVK5D2B" class="Symfony\Component\HttpFoundation\ChainRequestMatcher">
-      <argument type="collection">
-        <argument type="service" id=".security.request_matcher.pqyCXG8"/>
       </argument>
     </service>
     <service id=".security.request_matcher.l6nTaJG" class="Symfony\Component\HttpFoundation\RequestMatcher\PathRequestMatcher">
@@ -7910,6 +7931,31 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Asset\AssetPackage" class="EasyCorp\Bundle\EasyAdminBundle\Asset\AssetPackage">
       <tag name="assets.package" package="easyadmin.assets.package"/>
       <argument type="service" id="request_stack"/>
+    </service>
+    <service id="stof_doctrine_extensions.listener.timestampable" class="Gedmo\Timestampable\TimestampableListener">
+      <tag name="doctrine.event_listener" connection="default" event="prePersist"/>
+      <tag name="doctrine.event_listener" connection="default" event="onFlush"/>
+      <tag name="doctrine.event_listener" connection="default" event="loadClassMetadata"/>
+      <call method="setCacheItemPool">
+        <argument type="service" id="stof_doctrine_extensions.metadata_cache"/>
+      </call>
+      <call method="setClock">
+        <argument type="service" id="clock" on-invalid="ignore"/>
+      </call>
+      <call method="setAnnotationReader">
+        <argument type="service" id=".stof_doctrine_extensions.reader" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="stof_doctrine_extensions.listener.sluggable" class="Gedmo\Sluggable\SluggableListener">
+      <tag name="doctrine.event_listener" connection="default" event="prePersist"/>
+      <tag name="doctrine.event_listener" connection="default" event="onFlush"/>
+      <tag name="doctrine.event_listener" connection="default" event="loadClassMetadata"/>
+      <call method="setCacheItemPool">
+        <argument type="service" id="stof_doctrine_extensions.metadata_cache"/>
+      </call>
+      <call method="setAnnotationReader">
+        <argument type="service" id=".stof_doctrine_extensions.reader" on-invalid="ignore"/>
+      </call>
     </service>
     <service id="stof_doctrine_extensions.metadata_cache" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AllergensCrudController" class="App\Controller\Admin\AllergensCrudController" autowire="true" abstract="true"/>
@@ -9386,7 +9432,7 @@
       <argument type="service" id="http_client.uri_template"/>
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
     </service>
-    <service id=".service_locator.wy_sXIY" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.FgWyuYA" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="doctrine.orm.messenger.doctrine_schema_listener" type="service_closure" id="doctrine.orm.messenger.doctrine_schema_listener"/>
@@ -9396,6 +9442,8 @@
         <argument key="doctrine.orm.listeners.lock_store_schema_listener" type="service_closure" id="doctrine.orm.listeners.lock_store_schema_listener"/>
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service_closure" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
         <argument key="turbo.doctrine.event_listener" type="service_closure" id="turbo.doctrine.event_listener"/>
+        <argument key="stof_doctrine_extensions.listener.timestampable" type="service_closure" id="stof_doctrine_extensions.listener.timestampable"/>
+        <argument key="stof_doctrine_extensions.listener.sluggable" type="service_closure" id="stof_doctrine_extensions.listener.sluggable"/>
       </argument>
     </service>
     <service id=".service_locator.Lj69mgD" class="Symfony\Component\DependencyInjection\ServiceLocator">
