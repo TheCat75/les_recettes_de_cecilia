@@ -46,8 +46,10 @@ class ComposerStaticInite2803b87d7ae4125268fc0a5e339ad50
         array (
             'Symfonycasts\\SassBundle\\' => 24,
             'Symfonycasts\\DynamicForms\\' => 26,
+            'Symfony\\UX\\TwigComponent\\' => 25,
             'Symfony\\UX\\Turbo\\' => 17,
             'Symfony\\UX\\StimulusBundle\\' => 26,
+            'Symfony\\UX\\LiveComponent\\' => 25,
             'Symfony\\Runtime\\Symfony\\Component\\' => 34,
             'Symfony\\Requirements\\' => 21,
             'Symfony\\Polyfill\\Uuid\\' => 22,
@@ -210,6 +212,10 @@ class ComposerStaticInite2803b87d7ae4125268fc0a5e339ad50
         array (
             0 => __DIR__ . '/..' . '/symfonycasts/dynamic-forms/src',
         ),
+        'Symfony\\UX\\TwigComponent\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/ux-twig-component/src',
+        ),
         'Symfony\\UX\\Turbo\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/ux-turbo/src',
@@ -217,6 +223,10 @@ class ComposerStaticInite2803b87d7ae4125268fc0a5e339ad50
         'Symfony\\UX\\StimulusBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/stimulus-bundle/src',
+        ),
+        'Symfony\\UX\\LiveComponent\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/ux-live-component/src',
         ),
         'Symfony\\Runtime\\Symfony\\Component\\' => 
         array (
@@ -620,8 +630,8 @@ class ComposerStaticInite2803b87d7ae4125268fc0a5e339ad50
         ),
         'Doctrine\\Common\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/event-manager/src',
-            1 => __DIR__ . '/..' . '/doctrine/common/src',
+            0 => __DIR__ . '/..' . '/doctrine/common/src',
+            1 => __DIR__ . '/..' . '/doctrine/event-manager/src',
         ),
         'Doctrine\\Bundle\\MigrationsBundle\\' => 
         array (

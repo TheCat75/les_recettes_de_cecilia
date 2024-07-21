@@ -4,30 +4,31 @@
 {% endblock %}
 
 {% block body %}
-	<div class="row my-5">
-		<div class="col d-flex justify-content-center">
-			<h1>
-				Bonjour
-				{% if user.fisrtName is not null %}
-					{{user.fisrtName}}
-				{% endif %}
-			</h1>
+	<div class="container-fluid">
+		<div class="row my-5">
+			<div class="col d-flex justify-content-center">
+				<h1>
+					Bonjour
+					{% if user.fisrtName is not null %}
+						{{user.fisrtName}}
+					{% endif %}
+				</h1>
+			</div>
 		</div>
-	</div>
-	<div class="row my-5">
-		<div class="col d-flex justify-content-center">
-			<div class="card" style="width: 36rem;" data-controller="profil">
-				<div class="row my-5">
-					<div class="col d-flex justify-content-center">
-						<button type="button" class="btn btn-with-bg text-uppercase fw-bold" data-action="click->profil#enabledForm" data-profil-target="btnEdit">Editer mon profil</button>
-                        <button type="button" class="btn btn-with-bg text-uppercase fw-bold" data-action="click->profil#disabledForm" data-profil-target="btnCancel">Annuler</button>
+		<div class="row my-5">
+			<div class="col d-flex justify-content-center">
+				<div class="card" style="width: 36rem;" data-controller="profil">
+					<div class="row my-5">
+						<div class="col d-flex justify-content-center">
+							<button type="button" class="btn btn-with-bg text-uppercase fw-bold" data-action="click->profil#enabledForm" data-profil-target="btnEdit">Editer mon profil</button>
+							<button type="button" class="btn btn-with-bg text-uppercase fw-bold" data-action="click->profil#disabledForm" data-profil-target="btnCancel">Annuler</button>
+						</div>
 					</div>
-				</div>
-				<div class="card-body" data-profil-target="form">
-					{{ include('pages/user/_form.html.twig', {'button_label': 'Modifier'}) }}
+					<div class="card-body" data-profil-target="form">
+						{{ include('pages/user/_form.html.twig', {'button_label': 'Modifier'}) }}
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 {% endblock %}

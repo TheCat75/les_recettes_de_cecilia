@@ -4,42 +4,43 @@
 {% endblock %}
 
 {% block body %}
-	<div class="row my-5">
-		<div class="col d-flex justify-content-center">
-			{% for flash_error in app.flashes('reset_password_error') %}
-				<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-			{% endfor %}
-		</div>
-	</div>
-	<div class="row my-5">
-		<div class="col d-flex justify-content-center">
-			<h1>Vous avez perdu votre mot de passe</h1>
-		</div>
-	</div>
-	<div class="row my-5">
-		<div class="col d-flex justify-content-center">
+	<div class="container-fluid">
+		<div class="row my-5">
 			<div class="col d-flex justify-content-center">
-				<div class="card" style="width: 40rem;">
-					<div class="card-body">
-						<div class="d-flex justify-content-center mb-3">
-							<small class="text-center text-uppercase fw-bold">
-								Veuillez indiquer votre adresse courriel ci-dessous, et nous vous enverrons un lien qui vous permettra de choisir un nouveau mot de passe
-							</small>
-						</div>
-						{{ form_start(requestForm) }}
-						{{ form_row(requestForm.email) }}
-
-						<div class="row mt-5">
-							<div class="col d-flex justify-content-center">
-								<button class="btn btn-with-bg text-uppercase fw-bold">Recevoir le mail de réinitialisation du mot de passe</button>
+				{% for flash_error in app.flashes('reset_password_error') %}
+					<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="row my-5">
+			<div class="col d-flex justify-content-center">
+				<h1>Vous avez perdu votre mot de passe</h1>
+			</div>
+		</div>
+		<div class="row my-5">
+			<div class="col d-flex justify-content-center">
+				<div class="col d-flex justify-content-center">
+					<div class="card" style="width: 40rem;">
+						<div class="card-body">
+							<div class="d-flex justify-content-center mb-3">
+								<small class="text-center text-uppercase fw-bold">
+									Veuillez indiquer votre adresse courriel ci-dessous, et nous vous enverrons un lien qui vous permettra de choisir un nouveau mot de passe
+								</small>
 							</div>
+							{{ form_start(requestForm) }}
+							{{ form_row(requestForm.email) }}
+
+							<div class="row mt-5">
+								<div class="col d-flex justify-content-center">
+									<button class="btn btn-with-bg text-uppercase fw-bold">Recevoir le mail de réinitialisation du mot de passe</button>
+								</div>
+							</div>
+							{{ form_end(requestForm) }}
 						</div>
-						{{ form_end(requestForm) }}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 
 {% endblock %}

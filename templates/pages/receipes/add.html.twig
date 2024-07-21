@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une recette
+{% endblock %}
+
+{% block body %}
+
+	<div class="container-fluid">
+		<div class="row my-5">
+			<div class="col d-flex justify-content-center">
+				<h1>
+					Ajouter une recette
+				</h1>
+			</div>
+		</div>
+
+		<div class="row my-5">
+			<div class="col d-flex justify-content-center">
+				<h2>
+					Vous n'avez pas encore de recette
+				</h2>
+			</div>
+		</div>
+		<div class="row my-5">
+			<div class="col d-flex justify-content-center">
+				<a type="button" class="btn btn-with-bg text-uppercase fw-bold" href="{{path('app_receipes_add')}}">Ajouter votre première recette</a>
+			</div>
+		</div>
+		{{component('Reciepes')}}
+
+
+		</div>
+	{% endblock %}
