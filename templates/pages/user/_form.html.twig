@@ -2,10 +2,10 @@
 {{ form_widget(form) }}
 <div class="row">
 	<div class="col-6 d-flex justify-content-center">
-		<button class="btn btn-with-bg text-uppercase fw-bold">{{ button_label|default('Save') }}</button>
+		<button class="btn btn-primary-color text-uppercase fw-bold">{{ button_label|default('Save') }}</button>
 	</div>
 	<div class="col-6 d-flex justify-content-center">
-		<button class="btn  btn-with-bg text-uppercase fw-bold" name="_token" value="{{ csrf_token('delete' ~ user.id) }}" data-profil-target="btnDelete" data-action="click->profil#deleteProfil">Supprimer le profil</button>
+		<button class="btn  btn-primary-color text-uppercase fw-bold" name="_token" value="{{ csrf_token('delete' ~ user.id) }}" data-profil-target="btnDelete" data-action="click->profil#deleteProfil">Supprimer le profil</button>
 	</div>
 </div>
 {{ form_end(form) }}

@@ -1,80 +1,125 @@
-<div{{ attributes }}>
-   {{ form_start(form) }}
-        <div class="row">
-            <div class="col-4">
-                {{ form_row(form.name, {
-                    attr: {
-                        placeholder: 'Nom de la recette'
-                    }
-                }) }}
-            </div>
-        </div>
+<div{{attributes}}>
+	{{ form_start(form) }}
 
-        <table class="table table-borderless form-no-mb">
-            <thead>
-                <tr>
-                    <td>Allergènes</td>
-                    <td>Ingrédients</td>
-                    <td>Étapes</td>
-                    <td>Valeurs nutritionnelles</td>
-                </tr>
-            </thead>
-            <tbody>
-                {% for allergen_form in form.allergens %}
-                    <tr>
-                        <td>
-                            {{ form_row(allergen_form, {
-        
-                                row_attr: {class: 'mb-1'},
-                                attr: {
-                                    placeholder: 'Allergène'
-                                }
-                            }) }}
-                        </td>
-                    </tr>
-                {% endfor %}
-                {% for ingredien_form in form.ingrediens %}
-                    <tr>
-                        <td>
-                            {{ form_row(ingredien_form, {
-        
-                                row_attr: {class: 'mb-1'},
-                                attr: {
-                                    placeholder: 'Ingrédient'
-                                }
-                            }) }}
-                        </td>
-                    </tr>
-                {% endfor %}
-                {% for step_form in form.steps %}
-                    <tr>
-                        <td>
-                            {{ form_row(step_form, {
-        
-                                row_attr: {class: 'mb-1'},
-                                attr: {
-                                    placeholder: 'Étape'
-                                }
-                            }) }}
-                        </td>
-                    </tr>
-                {% endfor %}
-                {% for nutritionalValue_form in form.nutritionalValues %}
-                    <tr>
-                        <td>
-                            {{ form_row(nutritionalValue_form, {
-        
-                                row_attr: {class: 'mb-1'},
-                                attr: {
-                                    placeholder: 'Valeur nutritionnelle'
-                                }
-                            }) }}
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+	<div class="row">
+		<div class="col  d-flex justify-content-center">
+			<div class="card" style="width: 80%;">
+				<div class="row d-flex justify-content-center mt-5">
+					<div class="col-8">
+						<h2>Nom de la recette</h2>
+					</div>
+				</div>
+				<div class="row d-flex justify-content-center mb-5">
+					<div class="col-8">
+						{{ form_row(form.name, {label: false, attr: { placeholder: 'Mousse au chocolat' } }) }}
+					</div>
+				</div>
 
-        <button type="submit" class="btn btn-success" formnovalidate>Enregistrer</button>
-    {{ form_end(form) }}
+				<div class="card-body">
+					<div class="row my-5">
+						<div class="col-6 d-flex justify-content-center">
+							<div class="card" style="width: 100%;">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-12">
+											<h2>Ajouter les Ingredients</h2>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12">
+											{% for ingredien_form in form.ingrediens %}
+												{{ form_row(ingredien_form, { label: false, row_attr: {class: 'mb-1'}, attr: { placeholder: 'Ingrédient' } }) }}
+											{% endfor %}
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12">
+											{{ form_widget(form.ingrediens.vars.button_add, {label: "+ Ajouter d\'autres ingredients", attr: {class: 'btn btn-outline-primary'}}) }}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-6 d-flex justify-content-center">
+							<div class="card" style="width: 100%;">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-12">
+											<h2>Ajouter les étapes de la recettes</h2>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12">
+											{% for step_form in form.steps %}
+												{{ form_row(step_form, { label: false, row_attr: {class: 'mb-1'}, attr: { placeholder: 'Étape' } }) }}
+											{% endfor %}
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12">
+											{{ form_widget(form.steps.vars.button_add, {label: "+ Ajouter d\'autres étapes", attr: {class: 'btn btn-outline-primary'}}) }}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row my-5">
+						<div class="col-6 d-flex justify-content-center">
+							<div class="card" style="width: 100%;">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-12">
+											<h2>Ajouter les valeurs nutritionnels</h2>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12">
+											{% for nutritionalValue_form in form.nutritionalValues %}
+												{{ form_row(nutritionalValue_form, { label: false, row_attr: {class: 'mb-1'}, attr: { placeholder: 'Valeur nutritionnelle' } }) }}
+											{% endfor %}
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12">
+											{{ form_widget(form.nutritionalValues.vars.button_add, {label: "+ Ajouter d\'autres valeurs nutritionnel", attr: {class: 'btn btn-outline-primary'}}) }}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-6 d-flex justify-content-center">
+							<div class="card" style="width: 100%;">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-12">
+											<h2>Ajouter les allergens</h2>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12">
+											{% for allergen_form in form.allergens %}
+												{{ form_row(allergen_form, { label: false, row_attr: {class: 'mb-1'}, attr: { placeholder: 'Allergène' } }) }}
+											{% endfor %}
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12">
+											{{ form_widget(form.allergens.vars.button_add, {label: "+ Ajouter d\'autres allergens", attr: {class: 'btn btn-outline-primary'}}) }}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mb-5">
+						<div class="col-12 d-flex justify-content-center">
+							<button type="submit" class="btn btn-primary-color text-uppercase fw-bold" formnovalidate>Enregistrer la nouvelle recettes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{ form_end(form) }}
 </div>

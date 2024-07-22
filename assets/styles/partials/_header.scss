@@ -1,11 +1,11 @@
 header {
-    background-color: purple;
-    color: white;
+    background-color: $primary-color;
+    color: $background-color;
     text-align: center;
 }
 
 header a {
-    color: white;
+    color: $background-color;
     text-decoration: none;
 }
 

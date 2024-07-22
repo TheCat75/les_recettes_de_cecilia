@@ -30,7 +30,7 @@ class ReceipesController extends AbstractController
     }
     
     #[Route('/add', name: 'app_receipes_add')]
-    public function add(Request $request, EntityManagerInterface $entityManager, ?Receipes $receipes = null, ReceipesRepository $receipeRepository): Response
+    public function add(Request $request, EntityManagerInterface $entityManager, ?Receipes $receipes = null): Response
     {
         if (!$receipes) {
             $receipes = new Receipes();

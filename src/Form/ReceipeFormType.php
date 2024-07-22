@@ -18,7 +18,7 @@ class ReceipeFormType extends AbstractType
     {
         $builder
             ->add('name', null, [
-                'empty_data' => '',
+                'empty_data' => ''
             ])
             ->add('allergens', LiveCollectionType::class, [
                 'entry_type' => AllergensFormType::class,

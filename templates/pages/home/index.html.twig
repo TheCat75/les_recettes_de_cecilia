@@ -1,31 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}les recettes de Cécilia{% endblock %}
+{% block title %}les recettes de Cécilia
+{% endblock %}
 
 {% block body %}
 
 
-<div class="container-fluid">
-    <div class="row hero">
-        <div class="col-12 ">
-            <h1 class="text-center">Bienvenue sur le site de recettes de Cécilia</h1>
-        </div>
-    </div>
-    <div class="row  m-5">
-        <div class="col-12 d-flex justify-content-center">
-            <h2 class="text-center home-sub-title">Créez, partagez et découvrez des menus sur-mesure qui s’adaptent à vos goûts, vos besoins nutritionnels et vos préférences alimentaires, le tout enrichi par notre communauté passionnée de gourmets !</h2>
-        </div>
-    </div>
-    <div class="row  my-5">
-        <div class="col-12 d-flex justify-content-center ">
-            <h3 class="text-center home-text">Rejoignez la révolution culinaire avec Les Recettes de Cécilia</h3>
-        </div>
-    </div>
-    <div class="row my-5">
-        <div class="col-12 d-flex justify-content-center">
-            <a type="button" class="btn btn-with-bg text-uppercase fw-bold" href="{{path('app_register')}}">Inscrivez-vous pour accéder à des milliers de recettes et de menus personnalisés</a>
-        </div>
-    </div>
-</div>
+	<div class="container-fluid">
+		<div class="row hero">
+			<div class="col-12 ">
+				<h1 class="text-center">Bienvenue sur le site de recettes de Cécilia</h1>
+			</div>
+		</div>
+		<div class="row  m-5">
+			<div class="col-12 d-flex justify-content-center">
+				<h2 class="text-center home-sub-title">Créez, partagez et découvrez des menus sur-mesure qui s’adaptent à vos goûts, vos besoins nutritionnels et vos préférences alimentaires, le tout enrichi par notre communauté passionnée de gourmets !</h2>
+			</div>
+		</div>
+		<div class="row  my-5">
+			<div class="col-12 d-flex justify-content-center ">
+				<h3 class="text-center home-text">Rejoignez la révolution culinaire avec Les Recettes de Cécilia</h3>
+			</div>
+		</div>
+		<div class="row my-5">
+			<div class="col-12 d-flex justify-content-center">
+				<a type="button" class="btn btn-primary-color text-uppercase fw-bold" href="{{path('app_register')}}">Inscrivez-vous pour accéder à des milliers de recettes et de menus personnalisés</a>
+			</div>
+		</div>
+	</div>
 
 {% endblock %}

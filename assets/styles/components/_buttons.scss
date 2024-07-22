@@ -1,19 +1,66 @@
-.btn-with-bg {
-    background-color: purple;
-    color: white;
+.btn-primary-color {
+    background-color: $primary-color;
+}
+
+.btn-no-bg-primary,
+.btn-primary-color:hover {
+    border: 1px solid $primary-color;
+    color: $primary-color;
+}
+
+.btn-dark-color {
+    background-color: $dark-color;
+}
+
+.btn-no-bg-dark,
+.btn-dark-color:hover {
+    border: 1px solid $dark-color;
+    color: $dark-color;
+}
+
+.btn-light-color {
+    background-color: $light-color;
+}
+
+.btn-no-bg-light,
+.btn-light-color:hover {
+    border: 1px solid $light-color;
+    color: $light-color;
+}
+
+
+.btn-primary-color,
+.btn-dark-color,
+.btn-light-color {
+    color: $background-color;
     text-align: center;
     padding: .5rem 1rem;
     border-radius: .5rem;
     font-weight: bold;
 }
 
-.btn-with-bg:hover {
-    background-color: white;
-    border: 1px solid purple;
-    color: purple;
+.btn-primary-color:hover,
+.btn-dark-color:hover,
+.btn-light-color:hover {
+    background-color: $background-color;
+}
+
+.btn-no-bg-primary,
+.btn-no-bg-dark,
+.btn-no-bg-light {
+    background-color: $background-color;
+    text-align: center;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    font-weight: bold;
+}
+
+.btn-no-bg-primary:hover,
+.btn-no-bg-dark:hover,
+.btn-no-bg-light:hover {
+    color: $background-color;
 }
 
 .btn-diplay-none {
     display: none !important;
 }
-

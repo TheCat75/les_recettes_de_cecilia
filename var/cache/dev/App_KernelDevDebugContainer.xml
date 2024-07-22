@@ -598,7 +598,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.rOjlXc3"/>
+      <argument type="service" id=".service_locator.RQex8tG"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3816,7 +3816,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.rOjlXc3"/>
+      <argument type="service" id=".service_locator.RQex8tG"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -9587,18 +9587,17 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.Iv66Ets" method="withContext"/>
     </service>
-    <service id=".service_locator.4C77a6b" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.BUVkasn" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
-        <argument key="receipeRepository" type="service_closure" id="App\Repository\ReceipesRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.4C77a6b.App\Controller\Public\ReceipesController::add()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.BUVkasn.App\Controller\Public\ReceipesController::add()" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Public\ReceipesController::add()"/>
       <argument>App\Controller\Public\ReceipesController::add()</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.4C77a6b" method="withContext"/>
+      <factory service=".service_locator.BUVkasn" method="withContext"/>
     </service>
     <service id=".service_locator.g9BceMG" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
@@ -9709,7 +9708,7 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.KDH5aBS" method="withContext"/>
     </service>
-    <service id=".service_locator.rOjlXc3" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.RQex8tG" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.4wc4Ag1.kernel::registerContainerConfiguration()"/>
@@ -9760,7 +9759,7 @@
         <argument key="App\Controller\Admin\UserCrudController::createNewFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\UserCrudController::createNewFormBuilder()"/>
         <argument key="App\Controller\Admin\UserCrudController::configureResponseParameters" type="service_closure" id=".service_locator.OgOMxLk.App\Controller\Admin\UserCrudController::configureResponseParameters()"/>
         <argument key="App\Controller\Public\ReceipesController::index" type="service_closure" id=".service_locator.Iv66Ets.App\Controller\Public\ReceipesController::index()"/>
-        <argument key="App\Controller\Public\ReceipesController::add" type="service_closure" id=".service_locator.4C77a6b.App\Controller\Public\ReceipesController::add()"/>
+        <argument key="App\Controller\Public\ReceipesController::add" type="service_closure" id=".service_locator.BUVkasn.App\Controller\Public\ReceipesController::add()"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.g9BceMG.App\Controller\RegistrationController::register()"/>
         <argument key="App\Controller\RegistrationController::verifyUserEmail" type="service_closure" id=".service_locator.fdTWzgN.App\Controller\RegistrationController::verifyUserEmail()"/>
         <argument key="App\Controller\ResetPasswordController::request" type="service_closure" id=".service_locator.D.nMOje.App\Controller\ResetPasswordController::request()"/>
@@ -9816,7 +9815,7 @@
         <argument key="App\Controller\Admin\UserCrudController:createNewFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\UserCrudController::createNewFormBuilder()"/>
         <argument key="App\Controller\Admin\UserCrudController:configureResponseParameters" type="service_closure" id=".service_locator.OgOMxLk.App\Controller\Admin\UserCrudController::configureResponseParameters()"/>
         <argument key="App\Controller\Public\ReceipesController:index" type="service_closure" id=".service_locator.Iv66Ets.App\Controller\Public\ReceipesController::index()"/>
-        <argument key="App\Controller\Public\ReceipesController:add" type="service_closure" id=".service_locator.4C77a6b.App\Controller\Public\ReceipesController::add()"/>
+        <argument key="App\Controller\Public\ReceipesController:add" type="service_closure" id=".service_locator.BUVkasn.App\Controller\Public\ReceipesController::add()"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.g9BceMG.App\Controller\RegistrationController::register()"/>
         <argument key="App\Controller\RegistrationController:verifyUserEmail" type="service_closure" id=".service_locator.fdTWzgN.App\Controller\RegistrationController::verifyUserEmail()"/>
         <argument key="App\Controller\ResetPasswordController:request" type="service_closure" id=".service_locator.D.nMOje.App\Controller\ResetPasswordController::request()"/>
@@ -12316,7 +12315,7 @@
     <service id="Symfony\UX\LiveComponent\ComponentValidatorInterface" alias="Symfony\UX\LiveComponent\ComponentValidator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.pRu6x_4" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.rOjlXc3"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.RQex8tG"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.BxSdgVt"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -12374,7 +12373,7 @@
     <service id=".service_locator.4l1qxws" alias=".service_locator.OgOMxLk"/>
     <service id=".service_locator.TK4HnZu" alias=".service_locator._1ARgjp"/>
     <service id=".service_locator.w7n60F0" alias=".service_locator.Iv66Ets"/>
-    <service id=".service_locator.cWLe4_c" alias=".service_locator.4C77a6b"/>
+    <service id=".service_locator.Eq3oFhe" alias=".service_locator.BUVkasn"/>
     <service id=".service_locator.po3y92J" alias=".service_locator.g9BceMG"/>
     <service id=".service_locator.UQkiy2u" alias=".service_locator.fdTWzgN"/>
     <service id=".service_locator.BeKAW3g" alias=".service_locator.D.nMOje"/>
