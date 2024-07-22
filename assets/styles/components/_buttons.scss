@@ -1,14 +1,20 @@
-.btn-primary-color {
+// Buttons
+
+// Buttons primary color with background and no background
+.btn-primary-color,
+.btn-no-bg-primary:hover {
     background-color: $primary-color;
 }
 
-.btn-no-bg-primary,
-.btn-primary-color:hover {
+.btn-primary-color:hover,
+.btn-no-bg-primary {
     border: 1px solid $primary-color;
     color: $primary-color;
 }
 
-.btn-dark-color {
+// Buttons dark color with background and no background
+.btn-dark-color,
+.btn-no-bg-dark:hover {
     background-color: $dark-color;
 }
 
@@ -18,17 +24,20 @@
     color: $dark-color;
 }
 
-.btn-light-color {
+// Buttons light color with background and no background
+.btn-light-color,
+.btn-no-bg-light:hover {
     background-color: $light-color;
 }
 
-.btn-no-bg-light,
-.btn-light-color:hover {
+
+.btn-light-color:hover,
+.btn-no-bg-light {
     border: 1px solid $light-color;
     color: $light-color;
 }
 
-
+// Gloabls propietes buttons with background 
 .btn-primary-color,
 .btn-dark-color,
 .btn-light-color {
@@ -45,6 +54,7 @@
     background-color: $background-color;
 }
 
+// Gloabls propietes buttons no background 
 .btn-no-bg-primary,
 .btn-no-bg-dark,
 .btn-no-bg-light {
@@ -61,6 +71,8 @@
     color: $background-color;
 }
 
+
+// Propietes Hidden buttons
 .btn-diplay-none {
     display: none !important;
 }
