@@ -3,12 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\NutritionalValuesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 #[ORM\Entity(repositoryClass: NutritionalValuesRepository::class)]
 class NutritionalValues
 {
+
     use TimestampableEntity;
     
     #[ORM\Id]
@@ -16,52 +19,183 @@ class NutritionalValues
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    #[ORM\Column(nullable: true)]
+    private ?float $energy = null;
 
-    #[ORM\Column]
-    private ?int $percentages = null;
+    #[ORM\Column(nullable: true)]
+    private ?float $carbohydrates = null;
 
-    #[ORM\ManyToOne(inversedBy: 'nutritionalValues')]
-    private ?Receipes $receipes = null;
+    #[ORM\Column(nullable: true)]
+    private ?float $sugars = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $lipids = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $proteins = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $dietaryFibers = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $fats = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $salt = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $saturatedFattyAcids = null;
+
+    /**
+     * @var Collection<int, Recipes>
+     */
+    #[ORM\OneToMany(targetEntity: Recipes::class, mappedBy: 'nutritionalValue')]
+    private Collection $recipes;
+
+    public function __construct()
+    {
+        $this->recipes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getEnergy(): ?float
     {
-        return $this->name;
+        return $this->energy;
     }
 
-    public function setName(string $name): static
+    public function setEnergy(?float $energy): static
     {
-        $this->name = $name;
+        $this->energy = $energy;
 
         return $this;
     }
 
-    public function getPercentages(): ?int
+    public function getCarbohydrates(): ?float
     {
-        return $this->percentages;
+        return $this->carbohydrates;
     }
 
-    public function setPercentages(int $percentages): static
+    public function setCarbohydrates(?float $carbohydrates): static
     {
-        $this->percentages = $percentages;
+        $this->carbohydrates = $carbohydrates;
 
         return $this;
     }
 
-    public function getReceipes(): ?Receipes
+    public function getSugars(): ?float
     {
-        return $this->receipes;
+        return $this->sugars;
     }
 
-    public function setReceipes(?Receipes $receipes): static
+    public function setSugars(?float $sugars): static
     {
-        $this->receipes = $receipes;
+        $this->sugars = $sugars;
+
+        return $this;
+    }
+
+    public function getLipids(): ?float
+    {
+        return $this->lipids;
+    }
+
+    public function setLipids(?float $lipids): static
+    {
+        $this->lipids = $lipids;
+
+        return $this;
+    }
+
+    public function getProteins(): ?float
+    {
+        return $this->proteins;
+    }
+
+    public function setProteins(?float $proteins): static
+    {
+        $this->proteins = $proteins;
+
+        return $this;
+    }
+
+    public function getDietaryFibers(): ?float
+    {
+        return $this->dietaryFibers;
+    }
+
+    public function setDietaryFibers(?float $dietaryFibers): static
+    {
+        $this->dietaryFibers = $dietaryFibers;
+
+        return $this;
+    }
+
+    public function getFats(): ?float
+    {
+        return $this->fats;
+    }
+
+    public function setFats(?float $fats): static
+    {
+        $this->fats = $fats;
+
+        return $this;
+    }
+
+    public function getSalt(): ?float
+    {
+        return $this->salt;
+    }
+
+    public function setSalt(?float $salt): static
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    public function getSaturatedFattyAcids(): ?float
+    {
+        return $this->saturatedFattyAcids;
+    }
+
+    public function setSaturatedFattyAcids(?float $saturatedFattyAcids): static
+    {
+        $this->saturatedFattyAcids = $saturatedFattyAcids;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Recipes>
+     */
+    public function getRecipes(): Collection
+    {
+        return $this->recipes;
+    }
+
+    public function addRecipe(Recipes $recipe): static
+    {
+        if (!$this->recipes->contains($recipe)) {
+            $this->recipes->add($recipe);
+            $recipe->setNutritionalValue($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecipe(Recipes $recipe): static
+    {
+        if ($this->recipes->removeElement($recipe)) {
+            // set the owning side to null (unless already changed)
+            if ($recipe->getNutritionalValue() === $this) {
+                $recipe->setNutritionalValue(null);
+            }
+        }
 
         return $this;
     }

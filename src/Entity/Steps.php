@@ -10,59 +10,60 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 #[ORM\Entity(repositoryClass: StepsRepository::class)]
 class Steps
 {
-    use TimestampableEntity;
 
+    use TimestampableEntity;
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $descriptionStep = null;
+
     #[ORM\Column]
-    private ?int $numbers = null;
+    private ?int $orderStep = null;
 
     #[ORM\ManyToOne(inversedBy: 'steps')]
-    private ?Receipes $receipes = null;
-
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $description = null;
+    private ?Recipes $recipes = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNumbers(): ?int
+    public function getDescriptionStep(): ?string
     {
-        return $this->numbers;
+        return $this->descriptionStep;
     }
 
-    public function setNumbers(int $numbers): static
+    public function setDescriptionStep(string $descriptionStep): static
     {
-        $this->numbers = $numbers;
+        $this->descriptionStep = $descriptionStep;
 
         return $this;
     }
 
-    public function getReceipes(): ?Receipes
+    public function getOrderStep(): ?int
     {
-        return $this->receipes;
+        return $this->orderStep;
     }
 
-    public function setReceipes(?Receipes $receipes): static
+    public function setOrderStep(int $orderStep): static
     {
-        $this->receipes = $receipes;
+        $this->orderStep = $orderStep;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getRecipes(): ?Recipes
     {
-        return $this->description;
+        return $this->recipes;
     }
 
-    public function setDescription(string $description): static
+    public function setRecipes(?Recipes $recipes): static
     {
-        $this->description = $description;
+        $this->recipes = $recipes;
 
         return $this;
     }
