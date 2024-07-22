@@ -2,23 +2,23 @@
 
 // Buttons primary color with background and no background
 .btn-primary-color,
-.btn-no-bg-primary:hover {
+.btn-no-bg-primary-color:hover {
     background-color: $primary-color;
 }
 
 .btn-primary-color:hover,
-.btn-no-bg-primary {
+.btn-no-bg-primary-color {
     border: 1px solid $primary-color;
     color: $primary-color;
 }
 
 // Buttons dark color with background and no background
 .btn-dark-color,
-.btn-no-bg-dark:hover {
+.btn-no-bg-dark-color:hover {
     background-color: $dark-color;
 }
 
-.btn-no-bg-dark,
+.btn-no-bg-dark-color,
 .btn-dark-color:hover {
     border: 1px solid $dark-color;
     color: $dark-color;
@@ -26,13 +26,13 @@
 
 // Buttons light color with background and no background
 .btn-light-color,
-.btn-no-bg-light:hover {
+.btn-no-bg-light-color:hover {
     background-color: $light-color;
 }
 
 
 .btn-light-color:hover,
-.btn-no-bg-light {
+.btn-no-bg-light-color {
     border: 1px solid $light-color;
     color: $light-color;
 }
@@ -55,9 +55,9 @@
 }
 
 // Gloabls propietes buttons no background 
-.btn-no-bg-primary,
-.btn-no-bg-dark,
-.btn-no-bg-light {
+.btn-no-bg-primary-color,
+.btn-no-bg-dark-color,
+.btn-no-bg-light-color {
     background-color: $background-color;
     text-align: center;
     padding: .5rem 1rem;
@@ -65,9 +65,9 @@
     font-weight: bold;
 }
 
-.btn-no-bg-primary:hover,
-.btn-no-bg-dark:hover,
-.btn-no-bg-light:hover {
+.btn-no-bg-primary-color:hover,
+.btn-no-bg-dark-color:hover,
+.btn-no-bg-light-color:hover {
     color: $background-color;
 }
 

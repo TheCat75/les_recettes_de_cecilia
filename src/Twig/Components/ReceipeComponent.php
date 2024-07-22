@@ -4,6 +4,7 @@ namespace App\Twig\Components;
 
 
 use App\Entity\Receipes;
+use App\Entity\Allergens;
 use App\Form\ReceipeFormType;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
@@ -21,6 +22,7 @@ class ReceipeComponent extends AbstractController
 
     #[LiveProp(fieldName: 'formData')]
     public ?Receipes $receipes;
+
 
     protected function instantiateForm(): FormInterface
     {

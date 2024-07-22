@@ -14,38 +14,44 @@
 			</div>
 		</div>
 		{% if receipes|length > 0 %}
-			{{ dump(receipes) }}
 			<div class="row my-5">
 				<div class="col d-flex justify-content-center">
 					<div class="card" style="width: 80%;">
+						<div class="row mt-5">
+							<div class="col-6 d-flex justify-content-center">
+								<a type="button" class="btn btn-primary-color text-uppercase fw-bold" href="{{path('app_receipes_add')}}">Ajouter une recette</a>
+							</div>
+							<div class="col-6 d-flex justify-content-center">
+								<button type="button" class="btn btn-dark-color text-uppercase fw-bold" >Supprimer les recettes selectionner</button>
+							</div>
+						</div>
 						<div class="card-body">
 							<div class="row my-5">
 								<div class="col-12">
-									<table class="table text-center">
+									<table class="table text-center align-middle">
 										<thead>
-											<tr>
+											<tr class="text-uppercase">
 												<th scope="col"></th>
-												<th scope="col">Name
-												</th>
-												<th scope="col">Voir</th>
-												<th scope="col">Editer</th>
-												<th scope="col">Supprimer</th>
+												<th scope="col"></th>
+												<th scope="col"></th>
+												<th scope="col"></th>
+												<th scope="col"></th>
 											</tr>
 										</thead>
 										<tbody>
 											{% for receipe in receipes %}
 												<tr>
 													<td><input type="checkbox" id="{{receipe.id}}"/></td>
-													<th scope="row">{{receipe.name}}</th>
+													<th scope="row" class="text-uppercase">{{receipe.name}}</th>
 													<td>
-														<button class="btn btn-light-color text-uppercase fw-bold" type="button">Voir la recette</td>
+														<button class="btn btn-no-bg-light-color text-uppercase fw-bold" type="button">Voir la recette</td>
 													</td>
 													<td>
-														<button class="btn btn-primary-color text-uppercase fw-bold" type="button">
+														<button class="btn btn-no-bg-primary-color text-uppercase fw-bold" type="button">
 															Editer la recette</td>
 													</td>
 													<td>
-														<button class="btn btn-dark-color text-uppercase fw-bold" type="button">Supprimer la recette</td>
+														<button class="btn btn-no-bg-dark-color text-uppercase fw-bold" type="button">Supprimer la recette</td>
 													</td>
 												</tr>
 											{% endfor %}
@@ -67,7 +73,7 @@
 			</div>
 			<div class="row my-5">
 				<div class="col d-flex justify-content-center">
-					<a type="button" class="btn btn-primary-color text-uppercase fw-bold" href="{{path('app_receipes_add')}}">Ajouter votre première recette</a>
+					<a type="button" class="btn btn-no-bg-primary-color text-uppercase fw-bold" href="{{path('app_receipes_add')}}">Ajouter votre première recette</a>
 				</div>
 			</div>
 		{% endif %}
