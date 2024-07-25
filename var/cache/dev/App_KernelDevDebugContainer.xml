@@ -444,12 +444,28 @@
         <argument type="service" id=".service_locator.Z7xq1n_.App\Controller\Admin\IngredientsCrudController"/>
       </call>
     </service>
+    <service id="App\Controller\Admin\NutritionalValuesCrudController" class="App\Controller\Admin\NutritionalValuesCrudController" public="true" autowire="true" autoconfigure="true">
+      <tag name="ea.crud_controller"/>
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.Z7xq1n_.App\Controller\Admin\NutritionalValuesCrudController"/>
+      </call>
+    </service>
     <service id="App\Controller\Admin\RecipesCrudController" class="App\Controller\Admin\RecipesCrudController" public="true" autowire="true" autoconfigure="true">
       <tag name="ea.crud_controller"/>
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.Z7xq1n_.App\Controller\Admin\RecipesCrudController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Admin\StepsCrudController" class="App\Controller\Admin\StepsCrudController" public="true" autowire="true" autoconfigure="true">
+      <tag name="ea.crud_controller"/>
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.Z7xq1n_.App\Controller\Admin\StepsCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" public="true" autowire="true" autoconfigure="true">
@@ -584,7 +600,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.9J2jvPS"/>
+      <argument type="service" id=".service_locator.EYUSEsj"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3797,7 +3813,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.9J2jvPS"/>
+      <argument type="service" id=".service_locator.EYUSEsj"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -8499,10 +8515,18 @@
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\IngredientsCrudController" class="App\Controller\Admin\IngredientsCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\IngredientsCrudController" class="App\Controller\Admin\IngredientsCrudController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\IngredientsCrudController" class="App\Controller\Admin\IngredientsCrudController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\NutritionalValuesCrudController" class="App\Controller\Admin\NutritionalValuesCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\NutritionalValuesCrudController" class="App\Controller\Admin\NutritionalValuesCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\NutritionalValuesCrudController" class="App\Controller\Admin\NutritionalValuesCrudController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\NutritionalValuesCrudController" class="App\Controller\Admin\NutritionalValuesCrudController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\RecipesCrudController" class="App\Controller\Admin\RecipesCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\RecipesCrudController" class="App\Controller\Admin\RecipesCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\RecipesCrudController" class="App\Controller\Admin\RecipesCrudController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\RecipesCrudController" class="App\Controller\Admin\RecipesCrudController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\StepsCrudController" class="App\Controller\Admin\StepsCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\StepsCrudController" class="App\Controller\Admin\StepsCrudController" autowire="true" abstract="true"/>
+    <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\StepsCrudController" class="App\Controller\Admin\StepsCrudController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\StepsCrudController" class="App\Controller\Admin\StepsCrudController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" autowire="true" abstract="true"/>
@@ -9529,6 +9553,132 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.OgOMxLk" method="withContext"/>
     </service>
+    <service id=".service_locator.GLGWHcU.App\Controller\Admin\NutritionalValuesCrudController::configureCrud()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::configureCrud()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::configureCrud()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.GLGWHcU" method="withContext"/>
+    </service>
+    <service id=".service_locator.49XXFvZ.App\Controller\Admin\NutritionalValuesCrudController::configureAssets()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::configureAssets()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::configureAssets()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.49XXFvZ" method="withContext"/>
+    </service>
+    <service id=".service_locator.LHPXyzR.App\Controller\Admin\NutritionalValuesCrudController::configureActions()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::configureActions()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::configureActions()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.LHPXyzR" method="withContext"/>
+    </service>
+    <service id=".service_locator.3Xb4Hur.App\Controller\Admin\NutritionalValuesCrudController::configureFilters()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::configureFilters()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::configureFilters()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.3Xb4Hur" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::index()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::index()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::index()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::detail()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::detail()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::detail()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::edit()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::edit()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::edit()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::new()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::new()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::new()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::delete()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::delete()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::delete()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.PNgi4kB.App\Controller\Admin\NutritionalValuesCrudController::batchDelete()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::batchDelete()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::batchDelete()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.PNgi4kB" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::autocomplete()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::autocomplete()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::autocomplete()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.iydwXyk.App\Controller\Admin\NutritionalValuesCrudController::createIndexQueryBuilder()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::createIndexQueryBuilder()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::createIndexQueryBuilder()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.iydwXyk" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::renderFilters()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::renderFilters()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::renderFilters()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.P.blNFL.App\Controller\Admin\NutritionalValuesCrudController::updateEntity()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::updateEntity()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::updateEntity()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.P.blNFL" method="withContext"/>
+    </service>
+    <service id=".service_locator.P.blNFL.App\Controller\Admin\NutritionalValuesCrudController::persistEntity()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::persistEntity()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::persistEntity()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.P.blNFL" method="withContext"/>
+    </service>
+    <service id=".service_locator.P.blNFL.App\Controller\Admin\NutritionalValuesCrudController::deleteEntity()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::deleteEntity()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::deleteEntity()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.P.blNFL" method="withContext"/>
+    </service>
+    <service id=".service_locator.o3gmRre.App\Controller\Admin\NutritionalValuesCrudController::createEditForm()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::createEditForm()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::createEditForm()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.o3gmRre" method="withContext"/>
+    </service>
+    <service id=".service_locator.o3gmRre.App\Controller\Admin\NutritionalValuesCrudController::createEditFormBuilder()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::createEditFormBuilder()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::createEditFormBuilder()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.o3gmRre" method="withContext"/>
+    </service>
+    <service id=".service_locator.o3gmRre.App\Controller\Admin\NutritionalValuesCrudController::createNewForm()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::createNewForm()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::createNewForm()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.o3gmRre" method="withContext"/>
+    </service>
+    <service id=".service_locator.o3gmRre.App\Controller\Admin\NutritionalValuesCrudController::createNewFormBuilder()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::createNewFormBuilder()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::createNewFormBuilder()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.o3gmRre" method="withContext"/>
+    </service>
+    <service id=".service_locator.OgOMxLk.App\Controller\Admin\NutritionalValuesCrudController::configureResponseParameters()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController::configureResponseParameters()"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController::configureResponseParameters()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.OgOMxLk" method="withContext"/>
+    </service>
     <service id=".service_locator.GLGWHcU.App\Controller\Admin\RecipesCrudController::configureCrud()" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\RecipesCrudController::configureCrud()"/>
       <argument>App\Controller\Admin\RecipesCrudController::configureCrud()</argument>
@@ -9652,6 +9802,132 @@
     <service id=".service_locator.OgOMxLk.App\Controller\Admin\RecipesCrudController::configureResponseParameters()" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\RecipesCrudController::configureResponseParameters()"/>
       <argument>App\Controller\Admin\RecipesCrudController::configureResponseParameters()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.OgOMxLk" method="withContext"/>
+    </service>
+    <service id=".service_locator.GLGWHcU.App\Controller\Admin\StepsCrudController::configureCrud()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::configureCrud()"/>
+      <argument>App\Controller\Admin\StepsCrudController::configureCrud()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.GLGWHcU" method="withContext"/>
+    </service>
+    <service id=".service_locator.49XXFvZ.App\Controller\Admin\StepsCrudController::configureAssets()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::configureAssets()"/>
+      <argument>App\Controller\Admin\StepsCrudController::configureAssets()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.49XXFvZ" method="withContext"/>
+    </service>
+    <service id=".service_locator.LHPXyzR.App\Controller\Admin\StepsCrudController::configureActions()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::configureActions()"/>
+      <argument>App\Controller\Admin\StepsCrudController::configureActions()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.LHPXyzR" method="withContext"/>
+    </service>
+    <service id=".service_locator.3Xb4Hur.App\Controller\Admin\StepsCrudController::configureFilters()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::configureFilters()"/>
+      <argument>App\Controller\Admin\StepsCrudController::configureFilters()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.3Xb4Hur" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::index()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::index()"/>
+      <argument>App\Controller\Admin\StepsCrudController::index()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::detail()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::detail()"/>
+      <argument>App\Controller\Admin\StepsCrudController::detail()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::edit()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::edit()"/>
+      <argument>App\Controller\Admin\StepsCrudController::edit()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::new()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::new()"/>
+      <argument>App\Controller\Admin\StepsCrudController::new()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::delete()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::delete()"/>
+      <argument>App\Controller\Admin\StepsCrudController::delete()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.PNgi4kB.App\Controller\Admin\StepsCrudController::batchDelete()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::batchDelete()"/>
+      <argument>App\Controller\Admin\StepsCrudController::batchDelete()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.PNgi4kB" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::autocomplete()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::autocomplete()"/>
+      <argument>App\Controller\Admin\StepsCrudController::autocomplete()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.iydwXyk.App\Controller\Admin\StepsCrudController::createIndexQueryBuilder()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::createIndexQueryBuilder()"/>
+      <argument>App\Controller\Admin\StepsCrudController::createIndexQueryBuilder()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.iydwXyk" method="withContext"/>
+    </service>
+    <service id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::renderFilters()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::renderFilters()"/>
+      <argument>App\Controller\Admin\StepsCrudController::renderFilters()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.HOzo2Xr" method="withContext"/>
+    </service>
+    <service id=".service_locator.P.blNFL.App\Controller\Admin\StepsCrudController::updateEntity()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::updateEntity()"/>
+      <argument>App\Controller\Admin\StepsCrudController::updateEntity()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.P.blNFL" method="withContext"/>
+    </service>
+    <service id=".service_locator.P.blNFL.App\Controller\Admin\StepsCrudController::persistEntity()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::persistEntity()"/>
+      <argument>App\Controller\Admin\StepsCrudController::persistEntity()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.P.blNFL" method="withContext"/>
+    </service>
+    <service id=".service_locator.P.blNFL.App\Controller\Admin\StepsCrudController::deleteEntity()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::deleteEntity()"/>
+      <argument>App\Controller\Admin\StepsCrudController::deleteEntity()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.P.blNFL" method="withContext"/>
+    </service>
+    <service id=".service_locator.o3gmRre.App\Controller\Admin\StepsCrudController::createEditForm()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::createEditForm()"/>
+      <argument>App\Controller\Admin\StepsCrudController::createEditForm()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.o3gmRre" method="withContext"/>
+    </service>
+    <service id=".service_locator.o3gmRre.App\Controller\Admin\StepsCrudController::createEditFormBuilder()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::createEditFormBuilder()"/>
+      <argument>App\Controller\Admin\StepsCrudController::createEditFormBuilder()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.o3gmRre" method="withContext"/>
+    </service>
+    <service id=".service_locator.o3gmRre.App\Controller\Admin\StepsCrudController::createNewForm()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::createNewForm()"/>
+      <argument>App\Controller\Admin\StepsCrudController::createNewForm()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.o3gmRre" method="withContext"/>
+    </service>
+    <service id=".service_locator.o3gmRre.App\Controller\Admin\StepsCrudController::createNewFormBuilder()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::createNewFormBuilder()"/>
+      <argument>App\Controller\Admin\StepsCrudController::createNewFormBuilder()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.o3gmRre" method="withContext"/>
+    </service>
+    <service id=".service_locator.OgOMxLk.App\Controller\Admin\StepsCrudController::configureResponseParameters()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController::configureResponseParameters()"/>
+      <argument>App\Controller\Admin\StepsCrudController::configureResponseParameters()</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.OgOMxLk" method="withContext"/>
     </service>
@@ -9872,7 +10148,7 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.wYffHLf" method="withContext"/>
     </service>
-    <service id=".service_locator.9J2jvPS" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.EYUSEsj" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.4wc4Ag1.kernel::registerContainerConfiguration()"/>
@@ -9922,6 +10198,27 @@
         <argument key="App\Controller\Admin\IngredientsCrudController::createNewForm" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\IngredientsCrudController::createNewForm()"/>
         <argument key="App\Controller\Admin\IngredientsCrudController::createNewFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\IngredientsCrudController::createNewFormBuilder()"/>
         <argument key="App\Controller\Admin\IngredientsCrudController::configureResponseParameters" type="service_closure" id=".service_locator.OgOMxLk.App\Controller\Admin\IngredientsCrudController::configureResponseParameters()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::configureCrud" type="service_closure" id=".service_locator.GLGWHcU.App\Controller\Admin\NutritionalValuesCrudController::configureCrud()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::configureAssets" type="service_closure" id=".service_locator.49XXFvZ.App\Controller\Admin\NutritionalValuesCrudController::configureAssets()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::configureActions" type="service_closure" id=".service_locator.LHPXyzR.App\Controller\Admin\NutritionalValuesCrudController::configureActions()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::configureFilters" type="service_closure" id=".service_locator.3Xb4Hur.App\Controller\Admin\NutritionalValuesCrudController::configureFilters()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::index" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::index()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::detail" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::detail()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::edit" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::edit()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::new" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::new()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::delete" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::delete()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::batchDelete" type="service_closure" id=".service_locator.PNgi4kB.App\Controller\Admin\NutritionalValuesCrudController::batchDelete()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::autocomplete" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::autocomplete()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::createIndexQueryBuilder" type="service_closure" id=".service_locator.iydwXyk.App\Controller\Admin\NutritionalValuesCrudController::createIndexQueryBuilder()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::renderFilters" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::renderFilters()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::updateEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\NutritionalValuesCrudController::updateEntity()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::persistEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\NutritionalValuesCrudController::persistEntity()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::deleteEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\NutritionalValuesCrudController::deleteEntity()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::createEditForm" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\NutritionalValuesCrudController::createEditForm()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::createEditFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\NutritionalValuesCrudController::createEditFormBuilder()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::createNewForm" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\NutritionalValuesCrudController::createNewForm()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::createNewFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\NutritionalValuesCrudController::createNewFormBuilder()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController::configureResponseParameters" type="service_closure" id=".service_locator.OgOMxLk.App\Controller\Admin\NutritionalValuesCrudController::configureResponseParameters()"/>
         <argument key="App\Controller\Admin\RecipesCrudController::configureCrud" type="service_closure" id=".service_locator.GLGWHcU.App\Controller\Admin\RecipesCrudController::configureCrud()"/>
         <argument key="App\Controller\Admin\RecipesCrudController::configureAssets" type="service_closure" id=".service_locator.49XXFvZ.App\Controller\Admin\RecipesCrudController::configureAssets()"/>
         <argument key="App\Controller\Admin\RecipesCrudController::configureActions" type="service_closure" id=".service_locator.LHPXyzR.App\Controller\Admin\RecipesCrudController::configureActions()"/>
@@ -9943,6 +10240,27 @@
         <argument key="App\Controller\Admin\RecipesCrudController::createNewForm" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\RecipesCrudController::createNewForm()"/>
         <argument key="App\Controller\Admin\RecipesCrudController::createNewFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\RecipesCrudController::createNewFormBuilder()"/>
         <argument key="App\Controller\Admin\RecipesCrudController::configureResponseParameters" type="service_closure" id=".service_locator.OgOMxLk.App\Controller\Admin\RecipesCrudController::configureResponseParameters()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::configureCrud" type="service_closure" id=".service_locator.GLGWHcU.App\Controller\Admin\StepsCrudController::configureCrud()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::configureAssets" type="service_closure" id=".service_locator.49XXFvZ.App\Controller\Admin\StepsCrudController::configureAssets()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::configureActions" type="service_closure" id=".service_locator.LHPXyzR.App\Controller\Admin\StepsCrudController::configureActions()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::configureFilters" type="service_closure" id=".service_locator.3Xb4Hur.App\Controller\Admin\StepsCrudController::configureFilters()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::index" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::index()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::detail" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::detail()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::edit" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::edit()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::new" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::new()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::delete" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::delete()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::batchDelete" type="service_closure" id=".service_locator.PNgi4kB.App\Controller\Admin\StepsCrudController::batchDelete()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::autocomplete" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::autocomplete()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::createIndexQueryBuilder" type="service_closure" id=".service_locator.iydwXyk.App\Controller\Admin\StepsCrudController::createIndexQueryBuilder()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::renderFilters" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::renderFilters()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::updateEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\StepsCrudController::updateEntity()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::persistEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\StepsCrudController::persistEntity()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::deleteEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\StepsCrudController::deleteEntity()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::createEditForm" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\StepsCrudController::createEditForm()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::createEditFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\StepsCrudController::createEditFormBuilder()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::createNewForm" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\StepsCrudController::createNewForm()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::createNewFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\StepsCrudController::createNewFormBuilder()"/>
+        <argument key="App\Controller\Admin\StepsCrudController::configureResponseParameters" type="service_closure" id=".service_locator.OgOMxLk.App\Controller\Admin\StepsCrudController::configureResponseParameters()"/>
         <argument key="App\Controller\Admin\UserCrudController::persistEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\UserCrudController::persistEntity()"/>
         <argument key="App\Controller\Admin\UserCrudController::configureCrud" type="service_closure" id=".service_locator.GLGWHcU.App\Controller\Admin\UserCrudController::configureCrud()"/>
         <argument key="App\Controller\Admin\UserCrudController::configureAssets" type="service_closure" id=".service_locator.49XXFvZ.App\Controller\Admin\UserCrudController::configureAssets()"/>
@@ -10016,6 +10334,27 @@
         <argument key="App\Controller\Admin\IngredientsCrudController:createNewForm" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\IngredientsCrudController::createNewForm()"/>
         <argument key="App\Controller\Admin\IngredientsCrudController:createNewFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\IngredientsCrudController::createNewFormBuilder()"/>
         <argument key="App\Controller\Admin\IngredientsCrudController:configureResponseParameters" type="service_closure" id=".service_locator.OgOMxLk.App\Controller\Admin\IngredientsCrudController::configureResponseParameters()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:configureCrud" type="service_closure" id=".service_locator.GLGWHcU.App\Controller\Admin\NutritionalValuesCrudController::configureCrud()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:configureAssets" type="service_closure" id=".service_locator.49XXFvZ.App\Controller\Admin\NutritionalValuesCrudController::configureAssets()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:configureActions" type="service_closure" id=".service_locator.LHPXyzR.App\Controller\Admin\NutritionalValuesCrudController::configureActions()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:configureFilters" type="service_closure" id=".service_locator.3Xb4Hur.App\Controller\Admin\NutritionalValuesCrudController::configureFilters()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:index" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::index()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:detail" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::detail()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:edit" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::edit()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:new" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::new()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:delete" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::delete()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:batchDelete" type="service_closure" id=".service_locator.PNgi4kB.App\Controller\Admin\NutritionalValuesCrudController::batchDelete()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:autocomplete" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::autocomplete()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:createIndexQueryBuilder" type="service_closure" id=".service_locator.iydwXyk.App\Controller\Admin\NutritionalValuesCrudController::createIndexQueryBuilder()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:renderFilters" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\NutritionalValuesCrudController::renderFilters()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:updateEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\NutritionalValuesCrudController::updateEntity()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:persistEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\NutritionalValuesCrudController::persistEntity()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:deleteEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\NutritionalValuesCrudController::deleteEntity()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:createEditForm" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\NutritionalValuesCrudController::createEditForm()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:createEditFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\NutritionalValuesCrudController::createEditFormBuilder()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:createNewForm" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\NutritionalValuesCrudController::createNewForm()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:createNewFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\NutritionalValuesCrudController::createNewFormBuilder()"/>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController:configureResponseParameters" type="service_closure" id=".service_locator.OgOMxLk.App\Controller\Admin\NutritionalValuesCrudController::configureResponseParameters()"/>
         <argument key="App\Controller\Admin\RecipesCrudController:configureCrud" type="service_closure" id=".service_locator.GLGWHcU.App\Controller\Admin\RecipesCrudController::configureCrud()"/>
         <argument key="App\Controller\Admin\RecipesCrudController:configureAssets" type="service_closure" id=".service_locator.49XXFvZ.App\Controller\Admin\RecipesCrudController::configureAssets()"/>
         <argument key="App\Controller\Admin\RecipesCrudController:configureActions" type="service_closure" id=".service_locator.LHPXyzR.App\Controller\Admin\RecipesCrudController::configureActions()"/>
@@ -10037,6 +10376,27 @@
         <argument key="App\Controller\Admin\RecipesCrudController:createNewForm" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\RecipesCrudController::createNewForm()"/>
         <argument key="App\Controller\Admin\RecipesCrudController:createNewFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\RecipesCrudController::createNewFormBuilder()"/>
         <argument key="App\Controller\Admin\RecipesCrudController:configureResponseParameters" type="service_closure" id=".service_locator.OgOMxLk.App\Controller\Admin\RecipesCrudController::configureResponseParameters()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:configureCrud" type="service_closure" id=".service_locator.GLGWHcU.App\Controller\Admin\StepsCrudController::configureCrud()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:configureAssets" type="service_closure" id=".service_locator.49XXFvZ.App\Controller\Admin\StepsCrudController::configureAssets()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:configureActions" type="service_closure" id=".service_locator.LHPXyzR.App\Controller\Admin\StepsCrudController::configureActions()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:configureFilters" type="service_closure" id=".service_locator.3Xb4Hur.App\Controller\Admin\StepsCrudController::configureFilters()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:index" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::index()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:detail" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::detail()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:edit" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::edit()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:new" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::new()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:delete" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::delete()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:batchDelete" type="service_closure" id=".service_locator.PNgi4kB.App\Controller\Admin\StepsCrudController::batchDelete()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:autocomplete" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::autocomplete()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:createIndexQueryBuilder" type="service_closure" id=".service_locator.iydwXyk.App\Controller\Admin\StepsCrudController::createIndexQueryBuilder()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:renderFilters" type="service_closure" id=".service_locator.HOzo2Xr.App\Controller\Admin\StepsCrudController::renderFilters()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:updateEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\StepsCrudController::updateEntity()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:persistEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\StepsCrudController::persistEntity()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:deleteEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\StepsCrudController::deleteEntity()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:createEditForm" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\StepsCrudController::createEditForm()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:createEditFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\StepsCrudController::createEditFormBuilder()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:createNewForm" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\StepsCrudController::createNewForm()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:createNewFormBuilder" type="service_closure" id=".service_locator.o3gmRre.App\Controller\Admin\StepsCrudController::createNewFormBuilder()"/>
+        <argument key="App\Controller\Admin\StepsCrudController:configureResponseParameters" type="service_closure" id=".service_locator.OgOMxLk.App\Controller\Admin\StepsCrudController::configureResponseParameters()"/>
         <argument key="App\Controller\Admin\UserCrudController:persistEntity" type="service_closure" id=".service_locator.P.blNFL.App\Controller\Admin\UserCrudController::persistEntity()"/>
         <argument key="App\Controller\Admin\UserCrudController:configureCrud" type="service_closure" id=".service_locator.GLGWHcU.App\Controller\Admin\UserCrudController::configureCrud()"/>
         <argument key="App\Controller\Admin\UserCrudController:configureAssets" type="service_closure" id=".service_locator.49XXFvZ.App\Controller\Admin\UserCrudController::configureAssets()"/>
@@ -10606,25 +10966,33 @@
       <argument type="collection">
         <argument key="App\Controller\Admin\AllergensCrudController">App\Entity\Allergens</argument>
         <argument key="App\Controller\Admin\IngredientsCrudController">App\Entity\Ingredients</argument>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController">App\Entity\NutritionalValues</argument>
         <argument key="App\Controller\Admin\RecipesCrudController">App\Entity\Recipes</argument>
+        <argument key="App\Controller\Admin\StepsCrudController">App\Entity\Steps</argument>
         <argument key="App\Controller\Admin\UserCrudController">App\Entity\User</argument>
       </argument>
       <argument type="collection">
         <argument key="App\Controller\Admin\AllergensCrudController">a707746</argument>
         <argument key="App\Controller\Admin\IngredientsCrudController">f556633</argument>
+        <argument key="App\Controller\Admin\NutritionalValuesCrudController">033c502</argument>
         <argument key="App\Controller\Admin\RecipesCrudController">1fb488b</argument>
+        <argument key="App\Controller\Admin\StepsCrudController">e5d4ff9</argument>
         <argument key="App\Controller\Admin\UserCrudController">09baac8</argument>
       </argument>
       <argument type="collection">
         <argument key="App\Entity\Allergens">App\Controller\Admin\AllergensCrudController</argument>
         <argument key="App\Entity\Ingredients">App\Controller\Admin\IngredientsCrudController</argument>
+        <argument key="App\Entity\NutritionalValues">App\Controller\Admin\NutritionalValuesCrudController</argument>
         <argument key="App\Entity\Recipes">App\Controller\Admin\RecipesCrudController</argument>
+        <argument key="App\Entity\Steps">App\Controller\Admin\StepsCrudController</argument>
         <argument key="App\Entity\User">App\Controller\Admin\UserCrudController</argument>
       </argument>
       <argument type="collection">
         <argument key="a707746">App\Controller\Admin\AllergensCrudController</argument>
         <argument key="f556633">App\Controller\Admin\IngredientsCrudController</argument>
+        <argument key="033c502">App\Controller\Admin\NutritionalValuesCrudController</argument>
         <argument key="1fb488b">App\Controller\Admin\RecipesCrudController</argument>
+        <argument key="e5d4ff9">App\Controller\Admin\StepsCrudController</argument>
         <argument key="09baac8">App\Controller\Admin\UserCrudController</argument>
       </argument>
     </service>
@@ -10713,9 +11081,21 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.Z7xq1n_" method="withContext"/>
     </service>
+    <service id=".service_locator.Z7xq1n_.App\Controller\Admin\NutritionalValuesCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\NutritionalValuesCrudController"/>
+      <argument>App\Controller\Admin\NutritionalValuesCrudController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.Z7xq1n_" method="withContext"/>
+    </service>
     <service id=".service_locator.Z7xq1n_.App\Controller\Admin\RecipesCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\RecipesCrudController"/>
       <argument>App\Controller\Admin\RecipesCrudController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.Z7xq1n_" method="withContext"/>
+    </service>
+    <service id=".service_locator.Z7xq1n_.App\Controller\Admin\StepsCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\StepsCrudController"/>
+      <argument>App\Controller\Admin\StepsCrudController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.Z7xq1n_" method="withContext"/>
     </service>
@@ -11048,7 +11428,9 @@
           <argument>App\Controller\Admin\AllergensCrudController</argument>
           <argument>App\Controller\Admin\DashboardController</argument>
           <argument>App\Controller\Admin\IngredientsCrudController</argument>
+          <argument>App\Controller\Admin\NutritionalValuesCrudController</argument>
           <argument>App\Controller\Admin\RecipesCrudController</argument>
+          <argument>App\Controller\Admin\StepsCrudController</argument>
           <argument>App\Controller\Admin\UserCrudController</argument>
           <argument>App\Controller\LoginController</argument>
           <argument>App\Controller\Public\HomeController</argument>
@@ -12552,7 +12934,7 @@
     <service id="Symfony\UX\LiveComponent\ComponentValidatorInterface" alias="Symfony\UX\LiveComponent\ComponentValidator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.pRu6x_4" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.9J2jvPS"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.EYUSEsj"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.BxSdgVt"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>

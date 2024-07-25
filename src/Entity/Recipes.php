@@ -40,30 +40,32 @@ class Recipes
     #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $cookingTime = null;
 
-    #[ORM\ManyToOne(inversedBy: 'recipes')]
-    private ?NutritionalValues $nutritionalValue = null;
-
+   
     /**
      * @var Collection<int, Steps>
      */
-    #[ORM\OneToMany(targetEntity: Steps::class, mappedBy: 'recipes')]
+    #[ORM\OneToMany(targetEntity: Steps::class, mappedBy: 'recipes',cascade: ['persist', 'remove'])]
     private Collection $steps;
 
     /**
      * @var Collection<int, Ingredients>
      */
-    #[ORM\ManyToMany(targetEntity: Ingredients::class, inversedBy: 'recipes')]
+    #[ORM\ManyToMany(targetEntity: Ingredients::class, inversedBy: 'recipes',cascade: ['persist', 'remove'])]
     private Collection $ingrediens;
 
     /**
      * @var Collection<int, Allergens>
      */
-    #[ORM\ManyToMany(targetEntity: Allergens::class, mappedBy: 'recipes')]
+    #[ORM\ManyToMany(targetEntity: Allergens::class, mappedBy: 'recipes', cascade: ['persist', 'remove'])]
     private Collection $allergens;
 
     #[ORM\ManyToOne(inversedBy: 'recipes')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'recipe')]
+    private ?NutritionalValues $nutritionalValues = null;
+
 
     public function __construct()
     {
@@ -137,17 +139,7 @@ class Recipes
         return $this;
     }
 
-    public function getNutritionalValue(): ?NutritionalValues
-    {
-        return $this->nutritionalValue;
-    }
-
-    public function setNutritionalValue(?NutritionalValues $nutritionalValue): static
-    {
-        $this->nutritionalValue = $nutritionalValue;
-
-        return $this;
-    }
+    
 
     /**
      * @return Collection<int, Steps>
@@ -246,4 +238,18 @@ class Recipes
     {
         return $this->nameRecipe;
     }
+
+    public function getNutritionalValues(): ?NutritionalValues
+    {
+        return $this->nutritionalValues;
+    }
+
+    public function setNutritionalValues(?NutritionalValues $nutritionalValues): static
+    {
+        $this->nutritionalValues = $nutritionalValues;
+
+        return $this;
+    }
+
+    
 }

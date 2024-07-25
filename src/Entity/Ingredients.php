@@ -32,6 +32,9 @@ class Ingredients
     #[ORM\ManyToMany(targetEntity: Recipes::class, mappedBy: 'ingrediens')]
     private Collection $recipes;
 
+    #[ORM\Column(length: 255)]
+    private ?string $units = null;
+
     public function __construct()
     {
         $this->recipes = new ArrayCollection();
@@ -92,5 +95,23 @@ class Ingredients
         }
 
         return $this;
+    }
+
+    public function getUnits(): ?string
+    {
+        return $this->units;
+    }
+
+    public function setUnits(string $units): static
+    {
+        $this->units = $units;
+
+        return $this;
+    }
+
+    public function __toString() {
+        
+        return $this->nameIngredient; 
+        
     }
 }

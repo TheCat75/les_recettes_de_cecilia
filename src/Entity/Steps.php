@@ -27,6 +27,14 @@ class Steps
     #[ORM\ManyToOne(inversedBy: 'steps')]
     private ?Recipes $recipes = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $stepName = null;
+
+
+    public function __toString()
+    {
+        return $this->stepName;
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -64,6 +72,18 @@ class Steps
     public function setRecipes(?Recipes $recipes): static
     {
         $this->recipes = $recipes;
+
+        return $this;
+    }
+
+    public function getStepName(): ?string
+    {
+        return $this->stepName;
+    }
+
+    public function setStepName(string $stepName): static
+    {
+        $this->stepName = $stepName;
 
         return $this;
     }

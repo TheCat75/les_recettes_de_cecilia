@@ -1,0 +1,59 @@
+shéma DB: 
+
+Table: Recipes
+
+idRecipe (Primary Key)
+nameRecipe
+description
+preparationTime
+cookingTime
+numberOfCovers
+idNutritionalValue (Foreign Key) ManyToOne
+
+
+Table: Ingredients
+
+idIngredient (Primary Key)
+quant
+allergens
+
+Table: Steps
+
+idStep (Primary Key)
+idRecipe (Foreign Key) ManyToOne
+descriptionStep
+
+
+
+Table: RecipesIngredients
+
+idRecipe (Foreign Key) ManyToMany
+idIngredient (Foreign Key) ManyToMany
+quantity
+
+Table: NutritionalValues
+
+idNutritionalValue (Primary Key)
+energy
+carbohydrates
+sugars
+lipids
+proteins
+dietaryFibers
+
+Tables : Allergens
+
+cerealsContainingGluten
+crustaceans
+eggs
+fish
+peanuts
+soybeans
+milk
+nuts
+celery
+mustard
+sesameSeeds
+sulphurDioxideAndSulphites
+lupin
+molluscs

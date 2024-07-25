@@ -18,6 +18,8 @@ class Allergens
     #[ORM\Column]
     private ?int $id = null;
 
+    private ?string $name = 'Allergens';
+
     #[ORM\Column]
     private ?bool $cerealsContainingGluten = null;
 
@@ -54,6 +56,11 @@ class Allergens
     #[ORM\Column]
     private ?bool $sulphurDioxideAndSulphites = null;
 
+    public function __toString() {
+        
+        return $this->name; 
+        
+    }
     /**
      * @var Collection<int, Recipes>
      */

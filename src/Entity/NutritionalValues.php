@@ -19,6 +19,12 @@ class NutritionalValues
     #[ORM\Column]
     private ?int $id = null;
 
+    private ?string $name = 'Nutritional Values';
+
+    public function __toString() {
+        return $this->name;
+    }
+
     #[ORM\Column(nullable: true)]
     private ?float $energy = null;
 
@@ -49,12 +55,14 @@ class NutritionalValues
     /**
      * @var Collection<int, Recipes>
      */
-    #[ORM\OneToMany(targetEntity: Recipes::class, mappedBy: 'nutritionalValue')]
-    private Collection $recipes;
+    #[ORM\OneToMany(targetEntity: Recipes::class, mappedBy: 'nutritionalValues')]
+    private Collection $recipe;
 
+   
+    
     public function __construct()
     {
-        $this->recipes = new ArrayCollection();
+        $this->recipe = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -173,16 +181,16 @@ class NutritionalValues
     /**
      * @return Collection<int, Recipes>
      */
-    public function getRecipes(): Collection
+    public function getRecipe(): Collection
     {
-        return $this->recipes;
+        return $this->recipe;
     }
 
     public function addRecipe(Recipes $recipe): static
     {
-        if (!$this->recipes->contains($recipe)) {
-            $this->recipes->add($recipe);
-            $recipe->setNutritionalValue($this);
+        if (!$this->recipe->contains($recipe)) {
+            $this->recipe->add($recipe);
+            $recipe->setNutritionalValues($this);
         }
 
         return $this;
@@ -190,13 +198,15 @@ class NutritionalValues
 
     public function removeRecipe(Recipes $recipe): static
     {
-        if ($this->recipes->removeElement($recipe)) {
+        if ($this->recipe->removeElement($recipe)) {
             // set the owning side to null (unless already changed)
-            if ($recipe->getNutritionalValue() === $this) {
-                $recipe->setNutritionalValue(null);
+            if ($recipe->getNutritionalValues() === $this) {
+                $recipe->setNutritionalValues(null);
             }
         }
 
         return $this;
     }
+
+    
 }

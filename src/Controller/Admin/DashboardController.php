@@ -6,6 +6,8 @@ use App\Entity\User;
 use App\Entity\Recipes;
 use App\Entity\Allergens;
 use App\Entity\Ingredients;
+use App\Entity\NutritionalValues;
+use App\Entity\Steps;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -53,6 +55,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Recettes','', Recipes::class);
         yield MenuItem::linkToCrud('Allergens','', Allergens::class);
         yield MenuItem::linkToCrud('Ingredients','',Ingredients::class);
+        yield MenuItem::linkToCrud('Valeurs Nutritives','',NutritionalValues::class);
+        yield MenuItem::linkToCrud('Etapes','',Steps::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 

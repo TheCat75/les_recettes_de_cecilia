@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 
 class RecipesCrudController extends AbstractCrudController
 {
@@ -16,16 +17,18 @@ class RecipesCrudController extends AbstractCrudController
         return Recipes::class;
     }
 
-    
+
     public function configureFields(string $pageName): iterable
     {
-        
+
         yield TextField::new('nameRecipe');
         yield TextField::new('description');
-        yield IntegerField::new('numberOfCovers');  
+        yield IntegerField::new('numberOfCovers');
         yield AssociationField::new('user');
         yield TimeField::new('preparationTime')->setFormat('HH:mm:ss');
         yield TimeField::new('cookingTime')->setFormat('HH:mm:ss');
+        yield CollectionField::new('ingrediens')->useEntryCrudForm();
+        yield CollectionField::new('allergens')->useEntryCrudForm();
+        yield CollectionField::new('nutritionalValues')->useEntryCrudForm();
     }
-    
 }
