@@ -17,14 +17,22 @@ class RecipesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nameRecipe')
-            ->add('description')
-            ->add('numberOfCovers')
+            ->add('nameRecipe', null, [
+                'label' => 'Nom de la recette',
+            ])
+            ->add('description', null, [
+                'label' => 'Description',
+            ])
+            ->add('numberOfCovers', null, [
+                'label' => 'Nombre de couverts',
+            ])
             ->add('preparationTime', null, [
                 'widget' => 'single_text',
+                'label' => 'Temps de préparation',
             ])
             ->add('cookingTime', null, [
                 'widget' => 'single_text',
+                'label' => 'Temps de cuisson',
             ])
             // ->add('ingrediens', EntityType::class, [
             //     'class' => Ingredients::class,

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Steps{% endblock %}
+
+{% block body %}
+    <h1>Steps</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ step.id }}</td>
+            </tr>
+            <tr>
+                <th>DescriptionStep</th>
+                <td>{{ step.descriptionStep }}</td>
+            </tr>
+            <tr>
+                <th>OrderStep</th>
+                <td>{{ step.orderStep }}</td>
+            </tr>
+            <tr>
+                <th>StepName</th>
+                <td>{{ step.stepName }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ step.createdAt ? step.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ step.updatedAt ? step.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_steps_index') }}">back to list</a>
+
+    <a href="{{ path('app_steps_edit', {'id': step.id}) }}">edit</a>
+
+    {{ include('steps/_delete_form.html.twig') }}
+{% endblock %}

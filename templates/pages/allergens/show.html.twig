@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Allergens{% endblock %}
+
+{% block body %}
+    <h1>Allergens</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ allergen.id }}</td>
+            </tr>
+            <tr>
+                <th>CerealsContainingGluten</th>
+                <td>{{ allergen.cerealsContainingGluten ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Crustaceans</th>
+                <td>{{ allergen.crustaceans ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Eggs</th>
+                <td>{{ allergen.eggs ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Fish</th>
+                <td>{{ allergen.fish ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Milk</th>
+                <td>{{ allergen.milk ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Soybeans</th>
+                <td>{{ allergen.soybeans ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Peanuts</th>
+                <td>{{ allergen.peanuts ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Nuts</th>
+                <td>{{ allergen.nuts ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Celery</th>
+                <td>{{ allergen.celery ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Mustard</th>
+                <td>{{ allergen.mustard ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>SesameSeeds</th>
+                <td>{{ allergen.sesameSeeds ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>SulphurDioxideAndSulphites</th>
+                <td>{{ allergen.sulphurDioxideAndSulphites ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ allergen.createdAt ? allergen.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ allergen.updatedAt ? allergen.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_allergens_index') }}">back to list</a>
+
+    <a href="{{ path('app_allergens_edit', {'id': allergen.id}) }}">edit</a>
+
+    {{ include('allergens/_delete_form.html.twig') }}
+{% endblock %}

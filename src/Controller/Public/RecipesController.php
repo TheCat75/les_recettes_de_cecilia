@@ -19,7 +19,7 @@ class RecipesController extends AbstractController
     #[Route('/', name: 'app_recipes_index', methods: ['GET'])]
     public function index(RecipesRepository $recipesRepository , #[CurrentUser] User $user): Response
     {
-        return $this->render('recipes/index.html.twig', [
+        return $this->render('pages/recipes/index.html.twig', [
             'recipes' => $user->getRecipes(),
         ]);
     }
@@ -38,7 +38,7 @@ class RecipesController extends AbstractController
             return $this->redirectToRoute('app_recipes_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('recipes/new.html.twig', [
+        return $this->render('pages/recipes/new.html.twig', [
             'recipe' => $recipe,
             'form' => $form,
         ]);
@@ -47,7 +47,7 @@ class RecipesController extends AbstractController
     #[Route('/{id}', name: 'app_recipes_show', methods: ['GET'])]
     public function show(Recipes $recipe): Response
     {
-        return $this->render('recipes/show.html.twig', [
+        return $this->render('pages/recipes/show.html.twig', [
             'recipe' => $recipe,
         ]);
     }
@@ -64,7 +64,7 @@ class RecipesController extends AbstractController
             return $this->redirectToRoute('app_recipes_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('recipes/edit.html.twig', [
+        return $this->render('pages/recipes/edit.html.twig', [
             'recipe' => $recipe,
             'form' => $form,
         ]);
