@@ -1758,3 +1758,4 @@ cf299a,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControlle
 dbb1b8,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=edit&crudControllerFqcn=App%5CController%5CAdmin%5CRecipesCrudController&entityId=1,1722010991,,200,request
 d1688e,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=edit&crudControllerFqcn=App%5CController%5CAdmin%5CRecipesCrudController&entityId=1,1722011134,,200,request
 2dca89,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CRecipesCrudController,1722011146,,200,request
+3323a8,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CRecipesCrudController,1722011232,,200,request
