@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Allergens index{% endblock %}
+
+{% block body %}
+    <h1>Allergens index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CerealsContainingGluten</th>
+                <th>Crustaceans</th>
+                <th>Eggs</th>
+                <th>Fish</th>
+                <th>Milk</th>
+                <th>Soybeans</th>
+                <th>Peanuts</th>
+                <th>Nuts</th>
+                <th>Celery</th>
+                <th>Mustard</th>
+                <th>SesameSeeds</th>
+                <th>SulphurDioxideAndSulphites</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for allergen in allergens %}
+            <tr>
+                <td>{{ allergen.id }}</td>
+                <td>{{ allergen.cerealsContainingGluten ? 'Yes' : 'No' }}</td>
+                <td>{{ allergen.crustaceans ? 'Yes' : 'No' }}</td>
+                <td>{{ allergen.eggs ? 'Yes' : 'No' }}</td>
+                <td>{{ allergen.fish ? 'Yes' : 'No' }}</td>
+                <td>{{ allergen.milk ? 'Yes' : 'No' }}</td>
+                <td>{{ allergen.soybeans ? 'Yes' : 'No' }}</td>
+                <td>{{ allergen.peanuts ? 'Yes' : 'No' }}</td>
+                <td>{{ allergen.nuts ? 'Yes' : 'No' }}</td>
+                <td>{{ allergen.celery ? 'Yes' : 'No' }}</td>
+                <td>{{ allergen.mustard ? 'Yes' : 'No' }}</td>
+                <td>{{ allergen.sesameSeeds ? 'Yes' : 'No' }}</td>
+                <td>{{ allergen.sulphurDioxideAndSulphites ? 'Yes' : 'No' }}</td>
+                <td>{{ allergen.createdAt ? allergen.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ allergen.updatedAt ? allergen.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_allergens_show', {'id': allergen.id}) }}">show</a>
+                    <a href="{{ path('app_allergens_edit', {'id': allergen.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_allergens_new') }}">Create new</a>
+{% endblock %}

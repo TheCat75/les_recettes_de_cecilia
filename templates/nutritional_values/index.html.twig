@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NutritionalValues index{% endblock %}
+
+{% block body %}
+    <h1>NutritionalValues index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Energy</th>
+                <th>Carbohydrates</th>
+                <th>Sugars</th>
+                <th>Lipids</th>
+                <th>Proteins</th>
+                <th>DietaryFibers</th>
+                <th>Fats</th>
+                <th>Salt</th>
+                <th>SaturatedFattyAcids</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for nutritional_value in nutritional_values %}
+            <tr>
+                <td>{{ nutritional_value.id }}</td>
+                <td>{{ nutritional_value.energy }}</td>
+                <td>{{ nutritional_value.carbohydrates }}</td>
+                <td>{{ nutritional_value.sugars }}</td>
+                <td>{{ nutritional_value.lipids }}</td>
+                <td>{{ nutritional_value.proteins }}</td>
+                <td>{{ nutritional_value.dietaryFibers }}</td>
+                <td>{{ nutritional_value.fats }}</td>
+                <td>{{ nutritional_value.salt }}</td>
+                <td>{{ nutritional_value.saturatedFattyAcids }}</td>
+                <td>{{ nutritional_value.createdAt ? nutritional_value.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ nutritional_value.updatedAt ? nutritional_value.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_nutritional_values_show', {'id': nutritional_value.id}) }}">show</a>
+                    <a href="{{ path('app_nutritional_values_edit', {'id': nutritional_value.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_nutritional_values_new') }}">Create new</a>
+{% endblock %}

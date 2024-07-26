@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NutritionalValues{% endblock %}
+
+{% block body %}
+    <h1>NutritionalValues</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ nutritional_value.id }}</td>
+            </tr>
+            <tr>
+                <th>Energy</th>
+                <td>{{ nutritional_value.energy }}</td>
+            </tr>
+            <tr>
+                <th>Carbohydrates</th>
+                <td>{{ nutritional_value.carbohydrates }}</td>
+            </tr>
+            <tr>
+                <th>Sugars</th>
+                <td>{{ nutritional_value.sugars }}</td>
+            </tr>
+            <tr>
+                <th>Lipids</th>
+                <td>{{ nutritional_value.lipids }}</td>
+            </tr>
+            <tr>
+                <th>Proteins</th>
+                <td>{{ nutritional_value.proteins }}</td>
+            </tr>
+            <tr>
+                <th>DietaryFibers</th>
+                <td>{{ nutritional_value.dietaryFibers }}</td>
+            </tr>
+            <tr>
+                <th>Fats</th>
+                <td>{{ nutritional_value.fats }}</td>
+            </tr>
+            <tr>
+                <th>Salt</th>
+                <td>{{ nutritional_value.salt }}</td>
+            </tr>
+            <tr>
+                <th>SaturatedFattyAcids</th>
+                <td>{{ nutritional_value.saturatedFattyAcids }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ nutritional_value.createdAt ? nutritional_value.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ nutritional_value.updatedAt ? nutritional_value.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_nutritional_values_index') }}">back to list</a>
+
+    <a href="{{ path('app_nutritional_values_edit', {'id': nutritional_value.id}) }}">edit</a>
+
+    {{ include('nutritional_values/_delete_form.html.twig') }}
+{% endblock %}
