@@ -17,7 +17,6 @@ class RecipesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('slug')
             ->add('nameRecipe')
             ->add('description')
             ->add('numberOfCovers')
@@ -27,30 +26,21 @@ class RecipesType extends AbstractType
             ->add('cookingTime', null, [
                 'widget' => 'single_text',
             ])
-            ->add('createdAt', null, [
-                'widget' => 'single_text',
-            ])
-            ->add('updatedAt', null, [
-                'widget' => 'single_text',
-            ])
-            ->add('ingrediens', EntityType::class, [
-                'class' => Ingredients::class,
-                'choice_label' => 'id',
-                'multiple' => true,
-            ])
-            ->add('allergens', EntityType::class, [
-                'class' => Allergens::class,
-                'choice_label' => 'id',
-                'multiple' => true,
-            ])
-            ->add('user', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'id',
-            ])
-            ->add('nutritionalValues', EntityType::class, [
-                'class' => NutritionalValues::class,
-                'choice_label' => 'id',
-            ])
+            // ->add('ingrediens', EntityType::class, [
+            //     'class' => Ingredients::class,
+            //     'choice_label' => 'name',
+            //     'multiple' => true,
+            // ])
+            // ->add('allergens', EntityType::class, [
+            //     'class' => Allergens::class,
+            //     'choice_label' => 'name',
+            //     'multiple' => true,
+            //     'expanded' => true,
+            // ])
+            // ->add('nutritionalValues', EntityType::class, [
+            //     'class' => NutritionalValues::class,
+            //     'choice_label' => 'id',
+            // ])
         ;
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Public;
 
 use App\Entity\Ingredients;
 use App\Form\IngredientsType;

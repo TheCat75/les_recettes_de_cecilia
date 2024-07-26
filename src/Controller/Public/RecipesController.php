@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Public;
 
+use App\Entity\User;
 use App\Entity\Recipes;
 use App\Form\RecipesType;
 use App\Repository\RecipesRepository;
@@ -10,15 +11,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\CurrentUser;
 
 #[Route('/recipes')]
 class RecipesController extends AbstractController
 {
     #[Route('/', name: 'app_recipes_index', methods: ['GET'])]
-    public function index(RecipesRepository $recipesRepository): Response
+    public function index(RecipesRepository $recipesRepository , #[CurrentUser] User $user): Response
     {
         return $this->render('recipes/index.html.twig', [
-            'recipes' => $recipesRepository->findAll(),
+            'recipes' => $user->getRecipes(),
         ]);
     }
 
