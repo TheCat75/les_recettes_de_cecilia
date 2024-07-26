@@ -18,15 +18,15 @@ class NutritionalValuesCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
-        yield TextField::new('energy');
-        yield TextField::new('carbohydrates');
-        yield TextField::new('proteins');
-        yield TextField::new('fats');
-        yield TextField::new('salt');
-        yield TextField::new('sugars');
-        yield TextField::new('lipids');
-        yield TextField::new('saturatedFattyAcids');
-        yield TextField::new('dietaryFibers');
+        yield TextField::new('energy', 'Energy (kcal)');
+        yield TextField::new('carbohydrates', 'Carbohydrates (g)');
+        yield TextField::new('proteins', 'Proteins (g)');
+        yield TextField::new('fats', 'Fats (g)');
+        yield TextField::new('salt', 'Salt (g)');
+        yield TextField::new('sugars', 'Sugars (g)');
+        yield TextField::new('lipids', 'Lipids (g)');
+        yield TextField::new('saturatedFattyAcids', 'Saturated Fatty Acids (g)');
+        yield TextField::new('dietaryFibers', 'Dietary Fibers (g)');
         
     }
     

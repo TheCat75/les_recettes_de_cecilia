@@ -17,7 +17,6 @@ class AllergensCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
-        // yield AssociationField::new('recipes');
         yield BooleanField::new('cerealsContainingGluten')->hideValueWhenFalse();
         yield BooleanField::new('crustaceans')->hideValueWhenFalse();
         yield BooleanField::new('eggs')->hideValueWhenFalse();
@@ -30,8 +29,6 @@ class AllergensCrudController extends AbstractCrudController
         yield BooleanField::new('peanuts')->hideValueWhenFalse();
         yield BooleanField::new('sesameSeeds')->hideValueWhenFalse();
         yield BooleanField::new('sulphurDioxideAndSulphites')->hideValueWhenFalse();
-        // yield BooleanField::new('lupin')->hideValueWhenFalse();
-        // yield BooleanField::new('molluscs')->hideValueWhenFalse();
     }
     
 }

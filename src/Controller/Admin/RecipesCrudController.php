@@ -27,6 +27,7 @@ class RecipesCrudController extends AbstractCrudController
         yield AssociationField::new('user');
         yield TimeField::new('preparationTime')->setFormat('HH:mm:ss');
         yield TimeField::new('cookingTime')->setFormat('HH:mm:ss');
+        yield CollectionField::new('steps')->useEntryCrudForm();
         yield CollectionField::new('ingrediens')->useEntryCrudForm();
         yield CollectionField::new('allergens')->useEntryCrudForm();
         yield CollectionField::new('nutritionalValues')->useEntryCrudForm();

@@ -57,7 +57,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Ingredients','',Ingredients::class);
         yield MenuItem::linkToCrud('Valeurs Nutritives','',NutritionalValues::class);
         yield MenuItem::linkToCrud('Etapes','',Steps::class);
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 
     

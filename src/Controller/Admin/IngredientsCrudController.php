@@ -19,10 +19,9 @@ class IngredientsCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
-        // yield AssociationField::new('recipes', 'Recette');
         yield TextField::new('nameIngredient', "Ingredient");
-        yield NumberField::new('quantities');
-        yield ChoiceField::new('units')->setChoices([
+        yield NumberField::new('quantities', 'Quantité');
+        yield ChoiceField::new('units', 'Uniter')->setChoices([
             'g' => 'g',
             'kg' => 'kg',
             'ml' => 'ml',
